@@ -127,10 +127,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | IMPORT-03 | Phase 1 | Pending |
 | IMPORT-04 | Phase 1 | Pending |
 | IMPORT-05 | Phase 1 | Pending |
-| TRANS-01 | Phase 2 | Pending |
-| TRANS-02 | Phase 2 | Pending |
-| TRANS-03 | Phase 2 | Pending |
-| TRANS-04 | Phase 2 | Pending |
+| TRANS-01 | Phase 1 | Pending |
+| TRANS-02 | Phase 1 | Pending |
+| TRANS-03 | Phase 1 | Pending |
+| TRANS-04 | Phase 1 | Pending |
 | REC-01 | Phase 2 | Pending |
 | REC-02 | Phase 2 | Pending |
 | REC-03 | Phase 2 | Pending |
@@ -160,4 +160,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-03-25*
-*Last updated: 2026-03-25 after sibling project review and scope expansion*
+*Last updated: 2026-03-25 — traceability updated for 3-phase roadmap (TRANS moved to Phase 1)*
