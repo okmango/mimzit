@@ -45,7 +45,7 @@ iOS spacing uses points (pt), not pixels. All values are multiples of 4 pt.
 | 3xl | 64 pt | n/a for Phase 1 |
 
 Exceptions:
-- Touch targets for interactive controls: minimum 44 pt tall (Apple HIG requirement, applies to the Transcribe button and action sheet items)
+- Touch targets for interactive controls: minimum 44 pt tall (Apple HIG requirement, applies to the Transcribe Audio button and action sheet items)
 - Content type icon in library row: 32 pt wide × 32 pt tall (fixed, not scaled by Dynamic Type)
 - Video thumbnail in content detail: 16:9 aspect ratio, full-width minus md (16 pt) horizontal padding on each side
 
@@ -83,7 +83,7 @@ This app is for public speaking coaching — the dominant mood is focused, profe
 
 Accent reserved for:
 1. The '+' (add content) button in the navigation bar — only interactive affordance on the library screen
-2. The 'Transcribe' button label and spinner tint when transcription is in-progress
+2. The 'Transcribe Audio' button label and spinner tint when transcription is in-progress
 3. The 'Save API Key' button when the API key field is non-empty
 4. Active/selected state of the eye-toggle icon in the API key SecureField
 
@@ -97,7 +97,7 @@ Semantic color notes:
 - Transcription status badge:
   - No transcript: no badge
   - Transcribed: `.systemGreen` SF Symbol `checkmark.circle.fill` at caption size
-  - In-progress: accent-colored `ProgressView` replacing the Transcribe button
+  - In-progress: accent-colored `ProgressView` replacing the Transcribe Audio button
 
 ---
 
@@ -106,6 +106,8 @@ Semantic color notes:
 ### Screen 1: Content Library (home screen)
 
 Navigation container: `NavigationStack` with `.navigationTitle("Library")` (large title, default iOS behavior).
+
+Primary visual anchor: accent '+' button in navigation bar trailing position — the only interactive affordance on the library screen when content exists.
 
 **Empty state** (zero imported items):
 - Vertically centered in remaining space below nav bar
@@ -121,7 +123,7 @@ Navigation container: `NavigationStack` with `.navigationTitle("Library")` (larg
 - No search bar in Phase 1
 
 **Navigation bar**:
-- Trailing: `Button { } label: { Image(systemName: "plus") }` tinted accent
+- Trailing: `Button { } label: { Image(systemName: "plus") }` tinted accent, `.accessibilityLabel("Add reference content")`
 - No leading items
 
 ### Screen 2: Content Detail / Preview
@@ -134,7 +136,7 @@ Structure (top to bottom inside a `NavigationStack` inside the sheet):
 3. Metadata row: type label + duration (`.caption`, `.secondary`)
 4. Divider
 5. Transcript section:
-   - If no transcript: 'Transcribe' button (accent label, `.bordered` button style)
+   - If no transcript: 'Transcribe Audio' button (accent label, `.bordered` button style)
    - If in-progress: `ProgressView` with label "Transcribing..." replacing button
    - If complete: transcript text in scrollable `.body` font, green checkmark + "Transcript ready" label above
 6. Spacer
@@ -161,7 +163,7 @@ Cancel option auto-included by `.confirmationDialog`.
 Full-screen sheet. Contains:
 - `NavigationStack` with `.navigationTitle("New Script")`
 - `TextEditor` full-height, `.body` font, placeholder: "Start typing your script..."
-- Toolbar: trailing "Save" button (disabled until text is non-empty)
+- Toolbar: trailing "Save Script" button (disabled until text is non-empty)
 - Toolbar: leading "Cancel" button
 
 ### Screen 5: Settings
@@ -180,7 +182,7 @@ Settings is accessed via a tab bar tab (`.gearshape.fill` SF Symbol).
 
 ### Screen 6: API Key Entry Prompt (lazy trigger)
 
-When user taps 'Transcribe' and no API key is configured: present a `.sheet` (not an alert) with the same SecureField entry UI as the Settings screen API section. Sheet title: "OpenAI API Key Required". Footer explains lazy prompting: "Required for AI transcription. Text-only content does not need a key." Save button dismisses and immediately retries transcription.
+When user taps 'Transcribe Audio' and no API key is configured: present a `.sheet` (not an alert) with the same SecureField entry UI as the Settings screen API section. Sheet title: "OpenAI API Key Required". Footer explains lazy prompting: "Required for AI transcription. Text-only content does not need a key." Save button dismisses and immediately retries transcription.
 
 ---
 
@@ -208,7 +210,7 @@ Row height: 60 pt nominal (driven by content, not hardcoded)
 Two states:
 
 State 1 — Idle (no transcript):
-- `Button("Transcribe")` with `.bordered` button style
+- `Button("Transcribe Audio")` with `.bordered` button style
 - Accent foreground
 - SF Symbol `waveform.badge.sparkles` leading icon
 
@@ -245,17 +247,17 @@ Reuse pattern from `carufus_whozit/Whozit/Features/Settings/SettingsView.swift` 
 ### Type Script flow
 1. User taps '+' → confirmation dialog
 2. User taps "Type a Script" → Script Entry sheet slides up
-3. User types → Save button activates
-4. User taps Save → sheet dismisses → new row with Script type icon appears at top
+3. User types → Save Script button activates
+4. User taps "Save Script" → sheet dismisses → new row with Script type icon appears at top
 
 ### Transcription flow
 1. User taps content row → detail sheet slides up
-2. If video/audio: "Transcribe" button visible
-3. User taps "Transcribe":
+2. If video/audio: "Transcribe Audio" button visible
+3. User taps "Transcribe Audio":
    a. If no API key: API key sheet appears first. After save, transcription auto-starts.
    b. If API key present: button transitions immediately to `ProgressView` + "Transcribing..."
 4. On success: ProgressView replaced by "Transcript ready" label + transcript text scrollable below
-5. On failure: ProgressView replaced by "Transcribe" button + inline error message below button (see Copywriting)
+5. On failure: ProgressView replaced by "Transcribe Audio" button + inline error message below button (see Copywriting)
 
 ### Headphone detection
 - Checked lazily: only surfaced before a practice session starts (Phase 2 will show this warning)
@@ -274,8 +276,9 @@ Reuse pattern from `carufus_whozit/Whozit/Features/Settings/SettingsView.swift` 
 |---------|------|
 | Primary CTA (library) | "+" (navigation bar icon, no label — standard iOS pattern) |
 | Primary CTA (content detail, disabled) | "Start Practice" |
-| Primary CTA (transcription) | "Transcribe" |
+| Primary CTA (transcription) | "Transcribe Audio" |
 | Primary CTA (API key save) | "Save API Key" |
+| Script entry save button | "Save Script" |
 | Empty state heading | "No reference content yet" |
 | Empty state body | "Tap + to import a video, audio file, or type a script." |
 | Action sheet title | "Add Reference Content" |
