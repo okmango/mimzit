@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Ready to plan
-stopped_at: Phase 2 UI-SPEC approved
-last_updated: "2026-03-26T21:05:56.267Z"
+status: Ready to execute
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-03-26T22:19:39.062Z"
 progress:
   total_phases: 3
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
+  total_plans: 6
+  completed_plans: 4
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-25)
 
 **Core value:** Users can record themselves alongside a reference speaker video and visually compare their delivery side-by-side
-**Current focus:** Phase 01 — foundation-import-transcription
+**Current focus:** Phase 02 — recording-fader-view-modes
 
 ## Current Position
 
-Phase: 2
-Plan: Not started
+Phase: 02 (recording-fader-view-modes) — EXECUTING
+Plan: 2 of 3
 
 ## Performance Metrics
 
@@ -49,6 +49,7 @@ Plan: Not started
 | Phase 01-foundation-import-transcription P01 | 7 | 2 tasks | 19 files |
 | Phase 01-foundation-import-transcription P02 | 5m | 2 tasks | 8 files |
 | Phase 01-foundation-import-transcription P03 | 15 | 2 tasks | 4 files |
+| Phase 02-recording-fader-view-modes P01 | 12 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,9 @@ Recent decisions affecting current work:
 - [Phase 01-foundation-import-transcription]: TRANS-04 deferred per D-11: no SFSpeechRecognizer fallback — Whisper API is the only transcription path in Phase 1
 - [Phase 01-foundation-import-transcription]: API key lazy-prompt (D-13): APIKeyPromptSheet appears on demand when TranscriptionError.noAPIKey caught; auto-retries transcription after save
 - [Phase 01-foundation-import-transcription]: TranscribeState enum drives all button rendering — single enum (idle/inProgress/complete/error) with no boolean flags
+- [Phase 02-recording-fader-view-modes]: CaptureEngine uses @Observable @MainActor with dedicated sessionQueue — main actor isolation for SwiftUI observation without blocking main thread
+- [Phase 02-recording-fader-view-modes]: ViewMode enum as single source of truth for layer visibility — showsReferenceLayer/showsCameraLayer/showsTextOverlay/faderControlsTextOpacity replace scattered boolean flags
+- [Phase 02-recording-fader-view-modes]: PlaybackEngine loop via NotificationCenter AVPlayerItemDidPlayToEndTime with Task @MainActor closure (not deinit cleanup — Swift 6 concurrency)
 
 ### Pending Todos
 
@@ -81,6 +85,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T21:05:56.263Z
-Stopped at: Phase 2 UI-SPEC approved
-Resume file: .planning/phases/02-recording-fader-view-modes/02-UI-SPEC.md
+Last session: 2026-03-26T22:19:39.059Z
+Stopped at: Completed 02-01-PLAN.md
+Resume file: None
