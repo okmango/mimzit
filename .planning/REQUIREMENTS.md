@@ -28,7 +28,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **TRANS-01**: User can request AI transcription of reference video/audio via OpenAI Whisper API
 - [x] **TRANS-02**: Audio is preprocessed before sending to Whisper (silence removal + 1.5x speedup, reuse sezit AudioPreprocessor pattern)
 - [x] **TRANS-03**: Transcription text is saved alongside the reference content as synchronized transcript
-- [ ] **TRANS-04**: Fallback to on-device SFSpeechRecognizer when no API key is configured (reuse digzit fallback pattern)
+- [x] **TRANS-04**: Fallback to on-device SFSpeechRecognizer when no API key is configured (reuse digzit fallback pattern)
 
 ### Recording
 
@@ -130,7 +130,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TRANS-01 | Phase 1 | Complete |
 | TRANS-02 | Phase 1 | Complete |
 | TRANS-03 | Phase 1 | Complete |
-| TRANS-04 | Phase 1 | Pending |
+| TRANS-04 | Phase 1 | Complete |
 | REC-01 | Phase 2 | Pending |
 | REC-02 | Phase 2 | Pending |
 | REC-03 | Phase 2 | Pending |

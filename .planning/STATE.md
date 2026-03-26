@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Ready to execute
-stopped_at: Completed 01-02-PLAN.md
-last_updated: "2026-03-26T13:02:15.025Z"
+status: Phase complete — ready for verification
+stopped_at: Completed 01-03-PLAN.md (Phase 1 complete)
+last_updated: "2026-03-26T19:27:37.705Z"
 progress:
   total_phases: 3
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 3
-  completed_plans: 2
+  completed_plans: 3
 ---
 
 # Project State
@@ -48,6 +48,7 @@ Plan: 3 of 3
 *Updated after each plan completion*
 | Phase 01-foundation-import-transcription P01 | 7 | 2 tasks | 19 files |
 | Phase 01-foundation-import-transcription P02 | 5m | 2 tasks | 8 files |
+| Phase 01-foundation-import-transcription P03 | 15 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -65,6 +66,9 @@ Recent decisions affecting current work:
 - [Phase 01-foundation-import-transcription]: FileVault relative-filename pattern: store path in SwiftData, resolve to absolute URL at runtime — never store binary data in SwiftData
 - [Phase 01-foundation-import-transcription]: PHPickerViewController + loadFileRepresentation for video import (not SwiftUI loadTransferable — unreliable for video on iOS 16-17)
 - [Phase 01-foundation-import-transcription]: ContentDetailView transcription button is no-op placeholder in Phase 1 — wired in Plan 03 when TranscriptionService is integrated
+- [Phase 01-foundation-import-transcription]: TRANS-04 deferred per D-11: no SFSpeechRecognizer fallback — Whisper API is the only transcription path in Phase 1
+- [Phase 01-foundation-import-transcription]: API key lazy-prompt (D-13): APIKeyPromptSheet appears on demand when TranscriptionError.noAPIKey caught; auto-retries transcription after save
+- [Phase 01-foundation-import-transcription]: TranscribeState enum drives all button rendering — single enum (idle/inProgress/complete/error) with no boolean flags
 
 ### Pending Todos
 
@@ -77,6 +81,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T13:02:15.022Z
-Stopped at: Completed 01-02-PLAN.md
+Last session: 2026-03-26T19:27:37.702Z
+Stopped at: Completed 01-03-PLAN.md (Phase 1 complete)
 Resume file: None
