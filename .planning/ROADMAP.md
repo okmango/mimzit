@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md — Project scaffold, data models, and all foundation/transcription services
-- [ ] 01-02-PLAN.md — Content library UI, all import flows, content detail/preview, and Settings
+- [x] 01-02-PLAN.md — Content library UI, all import flows, content detail/preview, and Settings
 - [ ] 01-03-PLAN.md — Transcription UI wiring, API key lazy prompt, and Phase 1 verification checkpoint
 
 ### Phase 2: Recording + Fader + View Modes

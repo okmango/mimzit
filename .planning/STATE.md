@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: Ready to execute
-stopped_at: Completed 01-01-PLAN.md
-last_updated: "2026-03-26T12:53:38.178Z"
+stopped_at: Completed 01-02-PLAN.md
+last_updated: "2026-03-26T13:02:15.025Z"
 progress:
   total_phases: 3
   completed_phases: 0
   total_plans: 3
-  completed_plans: 1
+  completed_plans: 2
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-03-25)
 ## Current Position
 
 Phase: 01 (foundation-import-transcription) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 
 ## Performance Metrics
 
@@ -47,6 +47,7 @@ Plan: 2 of 3
 
 *Updated after each plan completion*
 | Phase 01-foundation-import-transcription P01 | 7 | 2 tasks | 19 files |
+| Phase 01-foundation-import-transcription P02 | 5m | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -62,6 +63,8 @@ Recent decisions affecting current work:
 - [Phase 01-foundation-import-transcription]: iOS 17.0 minimum deployment target — SwiftData requires iOS 17+, iOS 18 at 88%+ adoption
 - [Phase 01-foundation-import-transcription]: Removed deprecated .allowBluetooth AVAudioSession option (renamed to .allowBluetoothHFP in iOS 8); using .allowBluetoothA2DP + .defaultToSpeaker
 - [Phase 01-foundation-import-transcription]: FileVault relative-filename pattern: store path in SwiftData, resolve to absolute URL at runtime — never store binary data in SwiftData
+- [Phase 01-foundation-import-transcription]: PHPickerViewController + loadFileRepresentation for video import (not SwiftUI loadTransferable — unreliable for video on iOS 16-17)
+- [Phase 01-foundation-import-transcription]: ContentDetailView transcription button is no-op placeholder in Phase 1 — wired in Plan 03 when TranscriptionService is integrated
 
 ### Pending Todos
 
@@ -74,6 +77,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T12:53:38.175Z
-Stopped at: Completed 01-01-PLAN.md
+Last session: 2026-03-26T13:02:15.022Z
+Stopped at: Completed 01-02-PLAN.md
 Resume file: None

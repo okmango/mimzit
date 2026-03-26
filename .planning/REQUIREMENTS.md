@@ -17,11 +17,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Content Import
 
-- [ ] **IMPORT-01**: User can import a reference video from Camera Roll via system picker (mp4/mov only)
-- [ ] **IMPORT-02**: User can import an audio-only file from Files app (m4a/mp3)
-- [ ] **IMPORT-03**: User can paste or type text as a reference script (text-only mode)
-- [ ] **IMPORT-04**: Imported content is stored locally in app sandbox with metadata (type: video/audio/text)
-- [ ] **IMPORT-05**: User can preview imported reference content before starting a practice session
+- [x] **IMPORT-01**: User can import a reference video from Camera Roll via system picker (mp4/mov only)
+- [x] **IMPORT-02**: User can import an audio-only file from Files app (m4a/mp3)
+- [x] **IMPORT-03**: User can paste or type text as a reference script (text-only mode)
+- [x] **IMPORT-04**: Imported content is stored locally in app sandbox with metadata (type: video/audio/text)
+- [x] **IMPORT-05**: User can preview imported reference content before starting a practice session
 
 ### Transcription
 
@@ -122,11 +122,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FOUND-03 | Phase 1 | Complete |
 | FOUND-04 | Phase 1 | Complete |
 | FOUND-05 | Phase 1 | Complete |
-| IMPORT-01 | Phase 1 | Pending |
-| IMPORT-02 | Phase 1 | Pending |
-| IMPORT-03 | Phase 1 | Pending |
-| IMPORT-04 | Phase 1 | Pending |
-| IMPORT-05 | Phase 1 | Pending |
+| IMPORT-01 | Phase 1 | Complete |
+| IMPORT-02 | Phase 1 | Complete |
+| IMPORT-03 | Phase 1 | Complete |
+| IMPORT-04 | Phase 1 | Complete |
+| IMPORT-05 | Phase 1 | Complete |
 | TRANS-01 | Phase 1 | Complete |
 | TRANS-02 | Phase 1 | Complete |
 | TRANS-03 | Phase 1 | Complete |
