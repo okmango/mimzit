@@ -102,7 +102,7 @@ Control overlay structure (auto-hide layer):
 - **Center:** `RecordingTimerLabel` — elapsed time display (HH:MM:SS), centered horizontally. Visible only while recording.
 - **Bottom panel:** `VStack(spacing: 8)` containing:
   - `FaderView` (video) — labeled "VIDEO", full width minus 32px horizontal padding.
-  - `FaderView` (audio) — labeled "AUDIO", same width, smaller track height (6px vs 8px for video fader).
+  - `FaderView` (audio) — labeled "AUDIO", same width, smaller track height (4px vs 8px for video fader).
   - `HStack` with record button centered.
 - Bottom panel background: `Color.black.opacity(0.45)` capsule/rounded-rect, 16px horizontal padding from screen edges, 16px above home indicator safe area.
 
@@ -129,7 +129,7 @@ Custom `UIViewRepresentable` or pure SwiftUI `GeometryReader` + `DragGesture` ho
 | Property | Value |
 |----------|-------|
 | Track height (video fader) | 8px |
-| Track height (audio fader) | 6px |
+| Track height (audio fader) | 4px |
 | Track color | `Color.white.opacity(0.30)` |
 | Filled track color | `Theme.accent.opacity(0.80)` |
 | Thumb diameter | 28px |
@@ -299,6 +299,7 @@ No third-party registries or package managers are used for UI in this phase. All
 | Teleprompter non-current lines moved from 24pt to 16pt (Body) | ui-checker revision 2026-03-26 |
 | Record button accessibilityLabel added | ui-checker revision 2026-03-26 |
 | Camera permission CTA changed to "Open iPhone Settings" | ui-checker revision 2026-03-26 |
+| Audio fader track height changed from 6px to 4px (grid conformance) | ui-checker revision 2026-03-26 |
 
 ---
 
@@ -318,3 +319,4 @@ No third-party registries or package managers are used for UI in this phase. All
 *Phase: 02-recording-fader-view-modes*
 *UI-SPEC created: 2026-03-26*
 *UI-SPEC revised: 2026-03-26 (ui-checker fixes — typography weights/sizes, accessibility, copywriting)*
+*UI-SPEC revised: 2026-03-26 (ui-checker fix — audio fader track height 6px → 4px, spacing grid conformance)*
