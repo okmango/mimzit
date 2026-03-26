@@ -1,4 +1,4 @@
-# Roadmap: Spikzit
+# Roadmap: Mimzit
 
 ## Overview
 
@@ -28,7 +28,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. App correctly configures audio routing before any media starts (no silent overwrite by AVCaptureSession)
   4. App detects missing headphones and warns user before they attempt to record
   5. OpenAI API key can be stored and retrieved securely; app falls back to on-device recognition when no key is present
-**Plans**: TBD
+**Plans:** 3 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Project scaffold, data models, and all foundation/transcription services
+- [ ] 01-02-PLAN.md — Content library UI, all import flows, content detail/preview, and Settings
+- [ ] 01-03-PLAN.md — Transcription UI wiring, API key lazy prompt, and Phase 1 verification checkpoint
 
 ### Phase 2: Recording + Fader + View Modes
 **Goal**: Users can practice delivery alongside a reference in real time, blending video and audio with a DJ-fader
@@ -61,6 +66,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation + Import + Transcription | 0/? | Not started | - |
+| 1. Foundation + Import + Transcription | 0/3 | Planning complete | - |
 | 2. Recording + Fader + View Modes | 0/? | Not started | - |
 | 3. Sessions + Review | 0/? | Not started | - |
