@@ -53,15 +53,15 @@ Exceptions:
 
 | Role | Size | Weight | Line Height | Usage |
 |------|------|--------|-------------|-------|
-| Body | 16pt (SF Pro) | Regular (400) | 1.5 | Transcript text overlay on video (VIEW-02), teleprompter body text |
-| Label | 13pt (SF Pro) | Medium (500) | 1.2 | Fader position labels (e.g. "REF", "MIX", "CAM"), view mode segment labels (Ref / Cam / Blend / Text) |
-| Caption | 11pt (SF Pro) | Regular (400) | 1.3 | Recording duration timer, status indicators |
+| Body | 16pt (SF Pro) | Regular (400) | 1.5 | Transcript text overlay on video (VIEW-02), teleprompter body text (non-current lines) |
+| Label | 13pt (SF Pro) | Semibold (600) | 1.2 | Fader position labels (e.g. "REF", "MIX", "CAM"), view mode segment labels (Ref / Cam / Blend / Text) |
+| Caption | 11pt (SF Pro) | Regular (400) | 1.3 | Recording duration timer, status indicators, fader anchor labels |
 | Display | 28pt (SF Pro) | Semibold (600) | 1.2 | Teleprompter current-line highlight text |
 
 Notes:
-- Teleprompter non-current lines: 24pt Regular (400). Current line: 28pt Semibold (600). Source: D-14, Claude's Discretion.
+- Teleprompter non-current lines: 16pt Regular (400) (Body size). Current line: 28pt Semibold (600). Source: D-14, Claude's Discretion.
+- Exactly 2 weights used throughout: Regular (400) and Semibold (600). No Medium (500).
 - All recording screen text that overlays video must use `.shadow(color: .black.opacity(0.6), radius: 2, x: 0, y: 1)` for legibility against any video background.
-- Only 2 weights used throughout: Regular (400) and Semibold/Medium (500/600). This matches the existing codebase pattern.
 
 ---
 
@@ -117,8 +117,8 @@ Two sub-modes:
 Teleprompter layout (text-only mode):
 - Background: `.black`
 - Text: centered horizontally, `ScrollView` with `ScrollViewReader`
-- Current line: 28pt Semibold, `Color.white`, highlighted with subtle left accent bar (4px wide, `Theme.accent`)
-- Other lines: 24pt Regular, `Color.white.opacity(0.50)`
+- Current line: 28pt Semibold (600), `Color.white`, highlighted with subtle left accent bar (4px wide, `Theme.accent`)
+- Other lines: 16pt Regular (400), `Color.white.opacity(0.50)`
 - Speed control: small `Slider` or `Stepper` (Claude's Discretion on exact control), positioned above the record button area, labeled "Speed"
 - Margins: 24px horizontal padding
 
@@ -152,7 +152,7 @@ Pill-shaped segmented control. 4 segments: `Ref | Cam | Blend | Text`.
 | Corner radius | 22px (full pill) |
 | Background | `Color.white.opacity(0.15)` with `.ultraThinMaterial` backdrop blur |
 | Selected segment bg | `Theme.accent` |
-| Selected text | `Color.white`, 13pt Medium (500) |
+| Selected text | `Color.white`, 13pt Semibold (600) |
 | Unselected text | `Color.white.opacity(0.70)`, 13pt Regular (400) |
 | Horizontal padding (internal) | 16px per segment |
 | Segment separator | none (pill style, selection indicated by fill) |
@@ -170,6 +170,8 @@ Pill-shaped segmented control. 4 segments: `Ref | Cam | Blend | Text`.
 | Recording indicator | Pulsing outer ring: `Color(.systemRed).opacity(0.40)`, 84px diameter, `withAnimation(.easeInOut(duration: 0.8).repeatForever())` scale from 1.0 to 1.15. Source: D-03. |
 | Border | `Color.white.opacity(0.30)`, 2px stroke, always visible |
 | Shadow | `shadow(color: .black.opacity(0.50), radius: 8, y: 4)` |
+| Accessibility label (idle) | `.accessibilityLabel("Start Recording")` |
+| Accessibility label (recording) | `.accessibilityLabel("Stop Recording")` |
 
 ---
 
@@ -232,12 +234,12 @@ Pill-shaped segmented control. 4 segments: `Ref | Cam | Blend | Text`.
 
 | Element | Copy |
 |---------|------|
-| Primary CTA | "Start Recording" (not shown as a button — the record button icon conveys this) |
+| Primary CTA | "Start Recording" (not shown as a button — the record button icon conveys this; also maps to `.accessibilityLabel`) |
 | Recording status | "Recording" (displayed in timer label area as small caption above timer) |
 | Timer idle label | None — timer is hidden when not recording |
 | Camera permission denied heading | "Camera Access Required" |
 | Camera permission denied body | "Mimzit needs camera access to record your practice. Go to Settings to allow access." |
-| Camera permission denied CTA | "Open Settings" |
+| Camera permission denied CTA | "Open iPhone Settings" |
 | Camera unavailable (simulator) heading | "Camera Not Available" |
 | Camera unavailable body | "Connect a physical iPhone to enable recording. The Simulator does not provide a real camera." |
 | Transcript unavailable (Text mode disabled) | None visible — segment is visually dimmed, no tooltip needed |
@@ -293,6 +295,10 @@ No third-party registries or package managers are used for UI in this phase. All
 | View mode transition animations | Claude's Discretion (CONTEXT.md) |
 | Teleprompter font size and line spacing | Claude's Discretion (CONTEXT.md) |
 | Exact auto-hide animation timing | Claude's Discretion (CONTEXT.md) |
+| Typography collapsed to 2 weights (Regular + Semibold) | ui-checker revision 2026-03-26 |
+| Teleprompter non-current lines moved from 24pt to 16pt (Body) | ui-checker revision 2026-03-26 |
+| Record button accessibilityLabel added | ui-checker revision 2026-03-26 |
+| Camera permission CTA changed to "Open iPhone Settings" | ui-checker revision 2026-03-26 |
 
 ---
 
@@ -311,3 +317,4 @@ No third-party registries or package managers are used for UI in this phase. All
 
 *Phase: 02-recording-fader-view-modes*
 *UI-SPEC created: 2026-03-26*
+*UI-SPEC revised: 2026-03-26 (ui-checker fixes — typography weights/sizes, accessibility, copywriting)*
