@@ -10,34 +10,48 @@
 		0D0AC0B9D3B8337632EB0933 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C2C67AA7F3695A1B02095 /* KeychainService.swift */; };
 		30B560A8DFD791E7B99DB6C2 /* AudioSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10376A28DF6F44D6D4840C49 /* AudioSessionManager.swift */; };
 		31138DB083E80713642157CB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73AEE0578839E48A2A1F76 /* Theme.swift */; };
+		3B9411CA7F194F0A11773B5A /* ContentItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51251C1C09A535C0FCF56946 /* ContentItemRow.swift */; };
 		42690E37C732B65FED72C35F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5106F5913D6CC6FE52EE9DF6 /* ContentView.swift */; };
+		4647EF1067706D4BCD33B2A4 /* ContentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6413DADAC5030C72AD56EC /* ContentDetailView.swift */; };
 		5F4FDE949451F5F05228208A /* WhisperAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69FB76837F5B0F21D504B6A /* WhisperAPIClient.swift */; };
 		7E12131B5DA7E6492589E4A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE504B92AA300B904F1AE3F5 /* Assets.xcassets */; };
+		93DE936425CDE91939CD0E3E /* VideoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65B9509E44210FD9929296 /* VideoPicker.swift */; };
 		9485B9BADB392182561F5E67 /* AudioPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386444316B99E8673A5F9C0 /* AudioPreprocessor.swift */; };
 		9E13D65D03B2124F1401999B /* FileVault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37681A94A634DCCD3A5B6979 /* FileVault.swift */; };
+		A50C1547B7DB890CCA21FC81 /* EmptyLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3483932D516B61A48F45666 /* EmptyLibraryView.swift */; };
+		B26146C6D3F744CC0572E851 /* ContentLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7837C6EA60F832319A6D96E6 /* ContentLibraryView.swift */; };
+		B4B6B8D94FF92E1E55592FDF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F9A0EC93AB9E3CA639DBE /* SettingsView.swift */; };
 		B854CF517658747BF3753495 /* ReferenceContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C002A991A1809D8CC1A073F /* ReferenceContent.swift */; };
 		BAB9FF5788FDF3665898C075 /* MimzitMigrationPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = F333DD4DA555949ACDC6F34D /* MimzitMigrationPlan.swift */; };
 		CB2C7CC1E2CF6E4D6CED3F16 /* MimzitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0B55F5ECBC54BBD99533E9 /* MimzitApp.swift */; };
 		D92F70C8CAD143A24AF5939A /* TranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44EFD2D7A1199F637A899FB /* TranscriptionService.swift */; };
+		EBD84B6515A57B317CCC39FD /* TextScriptEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C461578E447B25509B7C7576 /* TextScriptEditorView.swift */; };
 		EF96BF22F04CE980DB49B0B1 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CA2D0B03ADFD687191E9E /* NetworkMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		10376A28DF6F44D6D4840C49 /* AudioSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionManager.swift; sourceTree = "<group>"; };
+		2A65B9509E44210FD9929296 /* VideoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPicker.swift; sourceTree = "<group>"; };
 		37681A94A634DCCD3A5B6979 /* FileVault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileVault.swift; sourceTree = "<group>"; };
 		3F9D852F1F9EA84511AC42B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4C002A991A1809D8CC1A073F /* ReferenceContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceContent.swift; sourceTree = "<group>"; };
 		5106F5913D6CC6FE52EE9DF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		51251C1C09A535C0FCF56946 /* ContentItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentItemRow.swift; sourceTree = "<group>"; };
 		6386444316B99E8673A5F9C0 /* AudioPreprocessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPreprocessor.swift; sourceTree = "<group>"; };
+		7837C6EA60F832319A6D96E6 /* ContentLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLibraryView.swift; sourceTree = "<group>"; };
 		7F73AEE0578839E48A2A1F76 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		816C2C67AA7F3695A1B02095 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		968CA2D0B03ADFD687191E9E /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		A69FB76837F5B0F21D504B6A /* WhisperAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisperAPIClient.swift; sourceTree = "<group>"; };
+		B3483932D516B61A48F45666 /* EmptyLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyLibraryView.swift; sourceTree = "<group>"; };
 		BAF308A74C9CFF2E076FFEAD /* Mimzit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mimzit.entitlements; sourceTree = "<group>"; };
+		C461578E447B25509B7C7576 /* TextScriptEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScriptEditorView.swift; sourceTree = "<group>"; };
 		CE504B92AA300B904F1AE3F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5458FB12B734B7CDFB28C75 /* Mimzit.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Mimzit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44EFD2D7A1199F637A899FB /* TranscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionService.swift; sourceTree = "<group>"; };
 		F333DD4DA555949ACDC6F34D /* MimzitMigrationPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimzitMigrationPlan.swift; sourceTree = "<group>"; };
+		F52F9A0EC93AB9E3CA639DBE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FC6413DADAC5030C72AD56EC /* ContentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailView.swift; sourceTree = "<group>"; };
 		FF0B55F5ECBC54BBD99533E9 /* MimzitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimzitApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,6 +59,8 @@
 		17557F0218023A53177F7E66 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				51251C1C09A535C0FCF56946 /* ContentItemRow.swift */,
+				B3483932D516B61A48F45666 /* EmptyLibraryView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -77,6 +93,10 @@
 		721439DA81FCE53F32F8BF7A /* Import */ = {
 			isa = PBXGroup;
 			children = (
+				FC6413DADAC5030C72AD56EC /* ContentDetailView.swift */,
+				7837C6EA60F832319A6D96E6 /* ContentLibraryView.swift */,
+				C461578E447B25509B7C7576 /* TextScriptEditorView.swift */,
+				2A65B9509E44210FD9929296 /* VideoPicker.swift */,
 			);
 			path = Import;
 			sourceTree = "<group>";
@@ -146,6 +166,7 @@
 		F4E1E04E1EB0A48A11BC09E3 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				F52F9A0EC93AB9E3CA639DBE /* SettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -232,15 +253,22 @@
 			files = (
 				9485B9BADB392182561F5E67 /* AudioPreprocessor.swift in Sources */,
 				30B560A8DFD791E7B99DB6C2 /* AudioSessionManager.swift in Sources */,
+				4647EF1067706D4BCD33B2A4 /* ContentDetailView.swift in Sources */,
+				3B9411CA7F194F0A11773B5A /* ContentItemRow.swift in Sources */,
+				B26146C6D3F744CC0572E851 /* ContentLibraryView.swift in Sources */,
 				42690E37C732B65FED72C35F /* ContentView.swift in Sources */,
+				A50C1547B7DB890CCA21FC81 /* EmptyLibraryView.swift in Sources */,
 				9E13D65D03B2124F1401999B /* FileVault.swift in Sources */,
 				0D0AC0B9D3B8337632EB0933 /* KeychainService.swift in Sources */,
 				CB2C7CC1E2CF6E4D6CED3F16 /* MimzitApp.swift in Sources */,
 				BAB9FF5788FDF3665898C075 /* MimzitMigrationPlan.swift in Sources */,
 				EF96BF22F04CE980DB49B0B1 /* NetworkMonitor.swift in Sources */,
 				B854CF517658747BF3753495 /* ReferenceContent.swift in Sources */,
+				B4B6B8D94FF92E1E55592FDF /* SettingsView.swift in Sources */,
+				EBD84B6515A57B317CCC39FD /* TextScriptEditorView.swift in Sources */,
 				31138DB083E80713642157CB /* Theme.swift in Sources */,
 				D92F70C8CAD143A24AF5939A /* TranscriptionService.swift in Sources */,
+				93DE936425CDE91939CD0E3E /* VideoPicker.swift in Sources */,
 				5F4FDE949451F5F05228208A /* WhisperAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

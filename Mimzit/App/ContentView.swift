@@ -12,27 +12,20 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            // Placeholder — replaced with ContentLibraryView in Plan 02
-            NavigationStack {
-                Text("Library")
-                    .navigationTitle("Library")
-            }
-            .tabItem {
-                Label("Library", systemImage: "film.stack")
-            }
+            ContentLibraryView()
+                .tabItem {
+                    Label("Library", systemImage: "film.stack")
+                }
 
-            // Placeholder — replaced with SettingsView in Plan 02
-            NavigationStack {
-                Text("Settings")
-                    .navigationTitle("Settings")
-            }
-            .tabItem {
-                Label("Settings", systemImage: "gearshape.fill")
-            }
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gearshape.fill")
+                }
         }
     }
 }
 
 #Preview {
     ContentView()
+        .modelContainer(for: ReferenceContent.self, inMemory: true)
 }
