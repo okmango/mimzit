@@ -7,24 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D0AC0B9D3B8337632EB0933 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C2C67AA7F3695A1B02095 /* KeychainService.swift */; };
 		30B560A8DFD791E7B99DB6C2 /* AudioSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10376A28DF6F44D6D4840C49 /* AudioSessionManager.swift */; };
 		31138DB083E80713642157CB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73AEE0578839E48A2A1F76 /* Theme.swift */; };
 		42690E37C732B65FED72C35F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5106F5913D6CC6FE52EE9DF6 /* ContentView.swift */; };
+		5F4FDE949451F5F05228208A /* WhisperAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69FB76837F5B0F21D504B6A /* WhisperAPIClient.swift */; };
 		7E12131B5DA7E6492589E4A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE504B92AA300B904F1AE3F5 /* Assets.xcassets */; };
+		9485B9BADB392182561F5E67 /* AudioPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386444316B99E8673A5F9C0 /* AudioPreprocessor.swift */; };
+		9E13D65D03B2124F1401999B /* FileVault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37681A94A634DCCD3A5B6979 /* FileVault.swift */; };
 		B854CF517658747BF3753495 /* ReferenceContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C002A991A1809D8CC1A073F /* ReferenceContent.swift */; };
 		BAB9FF5788FDF3665898C075 /* MimzitMigrationPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = F333DD4DA555949ACDC6F34D /* MimzitMigrationPlan.swift */; };
 		CB2C7CC1E2CF6E4D6CED3F16 /* MimzitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0B55F5ECBC54BBD99533E9 /* MimzitApp.swift */; };
+		D92F70C8CAD143A24AF5939A /* TranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44EFD2D7A1199F637A899FB /* TranscriptionService.swift */; };
+		EF96BF22F04CE980DB49B0B1 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CA2D0B03ADFD687191E9E /* NetworkMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		10376A28DF6F44D6D4840C49 /* AudioSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionManager.swift; sourceTree = "<group>"; };
+		37681A94A634DCCD3A5B6979 /* FileVault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileVault.swift; sourceTree = "<group>"; };
 		3F9D852F1F9EA84511AC42B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4C002A991A1809D8CC1A073F /* ReferenceContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceContent.swift; sourceTree = "<group>"; };
 		5106F5913D6CC6FE52EE9DF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6386444316B99E8673A5F9C0 /* AudioPreprocessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPreprocessor.swift; sourceTree = "<group>"; };
 		7F73AEE0578839E48A2A1F76 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		816C2C67AA7F3695A1B02095 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		968CA2D0B03ADFD687191E9E /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		A69FB76837F5B0F21D504B6A /* WhisperAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisperAPIClient.swift; sourceTree = "<group>"; };
 		BAF308A74C9CFF2E076FFEAD /* Mimzit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mimzit.entitlements; sourceTree = "<group>"; };
 		CE504B92AA300B904F1AE3F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5458FB12B734B7CDFB28C75 /* Mimzit.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Mimzit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E44EFD2D7A1199F637A899FB /* TranscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionService.swift; sourceTree = "<group>"; };
 		F333DD4DA555949ACDC6F34D /* MimzitMigrationPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimzitMigrationPlan.swift; sourceTree = "<group>"; };
 		FF0B55F5ECBC54BBD99533E9 /* MimzitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimzitApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,7 +93,13 @@
 		8082B5D9F53779BDDF38AF46 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6386444316B99E8673A5F9C0 /* AudioPreprocessor.swift */,
 				10376A28DF6F44D6D4840C49 /* AudioSessionManager.swift */,
+				37681A94A634DCCD3A5B6979 /* FileVault.swift */,
+				816C2C67AA7F3695A1B02095 /* KeychainService.swift */,
+				968CA2D0B03ADFD687191E9E /* NetworkMonitor.swift */,
+				E44EFD2D7A1199F637A899FB /* TranscriptionService.swift */,
+				A69FB76837F5B0F21D504B6A /* WhisperAPIClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -212,12 +230,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9485B9BADB392182561F5E67 /* AudioPreprocessor.swift in Sources */,
 				30B560A8DFD791E7B99DB6C2 /* AudioSessionManager.swift in Sources */,
 				42690E37C732B65FED72C35F /* ContentView.swift in Sources */,
+				9E13D65D03B2124F1401999B /* FileVault.swift in Sources */,
+				0D0AC0B9D3B8337632EB0933 /* KeychainService.swift in Sources */,
 				CB2C7CC1E2CF6E4D6CED3F16 /* MimzitApp.swift in Sources */,
 				BAB9FF5788FDF3665898C075 /* MimzitMigrationPlan.swift in Sources */,
+				EF96BF22F04CE980DB49B0B1 /* NetworkMonitor.swift in Sources */,
 				B854CF517658747BF3753495 /* ReferenceContent.swift in Sources */,
 				31138DB083E80713642157CB /* Theme.swift in Sources */,
+				D92F70C8CAD143A24AF5939A /* TranscriptionService.swift in Sources */,
+				5F4FDE949451F5F05228208A /* WhisperAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
