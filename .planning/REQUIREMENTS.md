@@ -34,22 +34,22 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **REC-01**: User can play reference content (video/audio/text) while simultaneously recording themselves via front camera
 - [x] **REC-02**: Reference audio plays through headphones/AirPods while mic captures user's voice without bleed
-- [ ] **REC-03**: User can see live camera preview overlaid on reference video during recording
+- [x] **REC-03**: User can see live camera preview overlaid on reference video during recording
 - [x] **REC-04**: User can start/stop recording with clear visual indicators
 - [x] **REC-05**: App captures sync timestamp at recording start for accurate review playback alignment
-- [ ] **REC-06**: In text-only mode, text scrolls automatically during recording at configurable speed (teleprompter-style)
+- [x] **REC-06**: In text-only mode, text scrolls automatically during recording at configurable speed (teleprompter-style)
 
 ### View Modes
 
-- [ ] **VIEW-01**: User can switch between view modes during recording: reference only, camera only, blended overlay, text overlay
-- [ ] **VIEW-02**: Text overlay mode shows scrolling transcript on top of reference video (semi-transparent background)
-- [ ] **VIEW-03**: When transcript is available for video/audio, user can toggle text overlay on/off during playback and recording
+- [x] **VIEW-01**: User can switch between view modes during recording: reference only, camera only, blended overlay, text overlay
+- [x] **VIEW-02**: Text overlay mode shows scrolling transcript on top of reference video (semi-transparent background)
+- [x] **VIEW-03**: When transcript is available for video/audio, user can toggle text overlay on/off during playback and recording
 
 ### Fader UI
 
-- [ ] **FADER-01**: User can slide a video fader to blend between reference video (left), overlay (center), and self-only (right)
+- [x] **FADER-01**: User can slide a video fader to blend between reference video (left), overlay (center), and self-only (right)
 - [x] **FADER-02**: User can slide an audio fader to blend between reference audio and their own recorded audio
-- [ ] **FADER-03**: Fader UI runs at 60fps without dropped frames during both live recording and review playback
+- [x] **FADER-03**: Fader UI runs at 60fps without dropped frames during both live recording and review playback
 - [x] **FADER-04**: Video blend uses CALayer opacity for GPU-composited performance
 
 ### Session Management
@@ -133,16 +133,16 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TRANS-04 | Phase 2 | Deferred (Whisper-only per D-11) |
 | REC-01 | Phase 2 | Complete |
 | REC-02 | Phase 2 | Complete |
-| REC-03 | Phase 2 | Pending |
+| REC-03 | Phase 2 | Complete |
 | REC-04 | Phase 2 | Complete |
 | REC-05 | Phase 2 | Complete |
-| REC-06 | Phase 2 | Pending |
-| VIEW-01 | Phase 2 | Pending |
-| VIEW-02 | Phase 2 | Pending |
-| VIEW-03 | Phase 2 | Pending |
-| FADER-01 | Phase 2 | Pending |
+| REC-06 | Phase 2 | Complete |
+| VIEW-01 | Phase 2 | Complete |
+| VIEW-02 | Phase 2 | Complete |
+| VIEW-03 | Phase 2 | Complete |
+| FADER-01 | Phase 2 | Complete |
 | FADER-02 | Phase 2 | Complete |
-| FADER-03 | Phase 2 | Pending |
+| FADER-03 | Phase 2 | Complete |
 | FADER-04 | Phase 2 | Complete |
 | SESS-01 | Phase 3 | Pending |
 | SESS-02 | Phase 3 | Pending |

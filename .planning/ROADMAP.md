@@ -49,8 +49,8 @@ Plans:
 
 Plans:
 - [x] 02-01-PLAN.md — CaptureEngine, PlaybackEngine, ViewMode enum, Theme + FileVault extensions
-- [ ] 02-02-PLAN.md — CompositorView, FaderView, ViewModeControl, TeleprompterView components
-- [ ] 02-03-PLAN.md — RecordingViewModel, RecordingView assembly, ContentDetailView wiring, visual checkpoint
+- [x] 02-02-PLAN.md — CompositorView, FaderView, ViewModeControl, TeleprompterView components
+- [x] 02-03-PLAN.md — RecordingViewModel, RecordingView assembly, ContentDetailView wiring, visual checkpoint
 
 ### Phase 3: Sessions + Review
 **Goal**: Users can save practice sessions and review any past session with the full fader UI to compare their delivery to the reference
