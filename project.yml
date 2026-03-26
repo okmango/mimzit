@@ -1,0 +1,42 @@
+name: Mimzit
+options:
+  bundleIdPrefix: com.okmango
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "16.0"
+  generateEmptyDirectories: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    SUPPORTED_PLATFORMS: "iphoneos iphonesimulator"
+    SUPPORTS_MACCATALYST: false
+    TARGETED_DEVICE_FAMILY: "1"
+targets:
+  Mimzit:
+    type: application
+    platform: iOS
+    sources:
+      - path: Mimzit
+        excludes:
+          - "**/.DS_Store"
+    info:
+      path: Mimzit/Resources/Info.plist
+      properties:
+        NSCameraUsageDescription: "Mimzit uses your camera to record you practicing alongside a reference speaker."
+        NSMicrophoneUsageDescription: "Mimzit records your voice so you can compare your delivery to the reference."
+        NSPhotoLibraryUsageDescription: "Mimzit imports reference videos from your photo library."
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+    entitlements:
+      path: Mimzit/Resources/Mimzit.entitlements
+      properties:
+        keychain-access-groups:
+          - "$(AppIdentifierPrefix)com.okmango.mimzit"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.okmango.mimzit
+        CODE_SIGN_STYLE: Automatic
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: 1
+        GENERATE_INFOPLIST_FILE: false
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon

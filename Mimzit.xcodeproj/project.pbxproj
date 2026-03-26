@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30B560A8DFD791E7B99DB6C2 /* AudioSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10376A28DF6F44D6D4840C49 /* AudioSessionManager.swift */; };
+		31138DB083E80713642157CB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73AEE0578839E48A2A1F76 /* Theme.swift */; };
+		42690E37C732B65FED72C35F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5106F5913D6CC6FE52EE9DF6 /* ContentView.swift */; };
+		7E12131B5DA7E6492589E4A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE504B92AA300B904F1AE3F5 /* Assets.xcassets */; };
+		B854CF517658747BF3753495 /* ReferenceContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C002A991A1809D8CC1A073F /* ReferenceContent.swift */; };
+		BAB9FF5788FDF3665898C075 /* MimzitMigrationPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = F333DD4DA555949ACDC6F34D /* MimzitMigrationPlan.swift */; };
+		CB2C7CC1E2CF6E4D6CED3F16 /* MimzitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0B55F5ECBC54BBD99533E9 /* MimzitApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		10376A28DF6F44D6D4840C49 /* AudioSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionManager.swift; sourceTree = "<group>"; };
+		3F9D852F1F9EA84511AC42B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4C002A991A1809D8CC1A073F /* ReferenceContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceContent.swift; sourceTree = "<group>"; };
+		5106F5913D6CC6FE52EE9DF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7F73AEE0578839E48A2A1F76 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		BAF308A74C9CFF2E076FFEAD /* Mimzit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mimzit.entitlements; sourceTree = "<group>"; };
+		CE504B92AA300B904F1AE3F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5458FB12B734B7CDFB28C75 /* Mimzit.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Mimzit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F333DD4DA555949ACDC6F34D /* MimzitMigrationPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimzitMigrationPlan.swift; sourceTree = "<group>"; };
+		FF0B55F5ECBC54BBD99533E9 /* MimzitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimzitApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		17557F0218023A53177F7E66 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		1D2F9D36B5976AC4581CD08B = {
+			isa = PBXGroup;
+			children = (
+				EA6F758325253D18F29E47B3 /* Mimzit */,
+				65FAA29C40B3049601E2F0ED /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3BDDB34CB0C452377D4C130B /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				7F73AEE0578839E48A2A1F76 /* Theme.swift */,
+				17557F0218023A53177F7E66 /* Components */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		65FAA29C40B3049601E2F0ED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5458FB12B734B7CDFB28C75 /* Mimzit.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		721439DA81FCE53F32F8BF7A /* Import */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Import;
+			sourceTree = "<group>";
+		};
+		7819EDAD9B3E13574BD8E2F2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F333DD4DA555949ACDC6F34D /* MimzitMigrationPlan.swift */,
+				4C002A991A1809D8CC1A073F /* ReferenceContent.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8082B5D9F53779BDDF38AF46 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				10376A28DF6F44D6D4840C49 /* AudioSessionManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8F0E60BC26E9D3813BA041D3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5106F5913D6CC6FE52EE9DF6 /* ContentView.swift */,
+				FF0B55F5ECBC54BBD99533E9 /* MimzitApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A13A0B6487399AB56D8F4561 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE504B92AA300B904F1AE3F5 /* Assets.xcassets */,
+				3F9D852F1F9EA84511AC42B5 /* Info.plist */,
+				BAF308A74C9CFF2E076FFEAD /* Mimzit.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DF9DEC1F41628F7A72BB8AEE /* Transcription */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Transcription;
+			sourceTree = "<group>";
+		};
+		EA6F758325253D18F29E47B3 /* Mimzit */ = {
+			isa = PBXGroup;
+			children = (
+				8F0E60BC26E9D3813BA041D3 /* App */,
+				F91AE8EEEBC328702B7D101F /* Features */,
+				7819EDAD9B3E13574BD8E2F2 /* Models */,
+				A13A0B6487399AB56D8F4561 /* Resources */,
+				8082B5D9F53779BDDF38AF46 /* Services */,
+				3BDDB34CB0C452377D4C130B /* Shared */,
+			);
+			path = Mimzit;
+			sourceTree = "<group>";
+		};
+		F4E1E04E1EB0A48A11BC09E3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F91AE8EEEBC328702B7D101F /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				721439DA81FCE53F32F8BF7A /* Import */,
+				F4E1E04E1EB0A48A11BC09E3 /* Settings */,
+				DF9DEC1F41628F7A72BB8AEE /* Transcription */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0A99E4CFDF07F00570DDED4A /* Mimzit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CAED9A52F1151245904834ED /* Build configuration list for PBXNativeTarget "Mimzit" */;
+			buildPhases = (
+				C2CE44B56CADDF88F3EF1444 /* Sources */,
+				3674E0A7D881B489ABAC511C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mimzit;
+			packageProductDependencies = (
+			);
+			productName = Mimzit;
+			productReference = D5458FB12B734B7CDFB28C75 /* Mimzit.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39708BFD2A8CDE446021C242 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					0A99E4CFDF07F00570DDED4A = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1F7DD7B65B4C2BE6CDB2D50E /* Build configuration list for PBXProject "Mimzit" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 1D2F9D36B5976AC4581CD08B;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0A99E4CFDF07F00570DDED4A /* Mimzit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3674E0A7D881B489ABAC511C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E12131B5DA7E6492589E4A0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C2CE44B56CADDF88F3EF1444 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30B560A8DFD791E7B99DB6C2 /* AudioSessionManager.swift in Sources */,
+				42690E37C732B65FED72C35F /* ContentView.swift in Sources */,
+				CB2C7CC1E2CF6E4D6CED3F16 /* MimzitApp.swift in Sources */,
+				BAB9FF5788FDF3665898C075 /* MimzitMigrationPlan.swift in Sources */,
+				B854CF517658747BF3753495 /* ReferenceContent.swift in Sources */,
+				31138DB083E80713642157CB /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7626F943842C81B2D385FD9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mimzit/Resources/Mimzit.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Mimzit/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.okmango.mimzit;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7C350A3E8687567A5FD8FABA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.10;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		9EFD41372F165EC53F2E28DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mimzit/Resources/Mimzit.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Mimzit/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.okmango.mimzit;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CA4D76549A28D3BD7AE6C95E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.10;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F7DD7B65B4C2BE6CDB2D50E /* Build configuration list for PBXProject "Mimzit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA4D76549A28D3BD7AE6C95E /* Debug */,
+				7C350A3E8687567A5FD8FABA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CAED9A52F1151245904834ED /* Build configuration list for PBXNativeTarget "Mimzit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7626F943842C81B2D385FD9E /* Debug */,
+				9EFD41372F165EC53F2E28DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 39708BFD2A8CDE446021C242 /* Project object */;
+}
