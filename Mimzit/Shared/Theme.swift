@@ -32,4 +32,36 @@ enum Theme {
 
     /// Transcription complete status indicator
     static let transcriptReady = Color(.systemGreen)
+
+    // MARK: - Recording UI Colors (Phase 2)
+
+    /// Record button fill color when recording is active. Also used for the pulsing ring.
+    static let recordActive = Color(.systemRed)
+
+    /// Record button fill color when idle (not recording).
+    static let recordIdle = Color.white.opacity(0.90)
+
+    /// Pulsing outer ring color on the record button during active recording.
+    static let recordPulse = Color(.systemRed).opacity(0.40)
+
+    /// Fader track background color for both video and audio faders.
+    static let faderTrack = Color.white.opacity(0.30)
+
+    /// Fader filled-track color (the portion from the left edge to the thumb).
+    static let faderFilled = Theme.accent.opacity(0.80)
+
+    /// Bottom control panel background color (semi-transparent dark overlay).
+    static let overlayPanel = Color.black.opacity(0.45)
+
+    /// Semi-transparent background band behind transcript text in text overlay mode (VIEW-02).
+    static let textOverlayBg = Color.black.opacity(0.55)
+
+    /// Background for pill-shaped controls (fader panel, view mode pill).
+    static let controlBg = Color.white.opacity(0.15)
+
+    /// Dimmed text used for inactive/secondary labels over dark video backgrounds.
+    static let dimmedText = Color.white.opacity(0.70)
+
+    /// Non-current teleprompter line text color (D-14).
+    static let teleprompterDim = Color.white.opacity(0.50)
 }
