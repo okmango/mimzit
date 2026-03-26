@@ -45,7 +45,12 @@ Plans:
   3. User can slide the audio fader and hear the blend shift between reference audio and their own voice
   4. User can switch view modes (reference only, camera only, blended overlay, text overlay) during an active recording session
   5. In text-only mode, the teleprompter scrolls automatically and the user's recording starts and stops cleanly
-**Plans**: TBD
+**Plans:** 3 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — CaptureEngine, PlaybackEngine, ViewMode enum, Theme + FileVault extensions
+- [ ] 02-02-PLAN.md — CompositorView, FaderView, ViewModeControl, TeleprompterView components
+- [ ] 02-03-PLAN.md — RecordingViewModel, RecordingView assembly, ContentDetailView wiring, visual checkpoint
 
 ### Phase 3: Sessions + Review
 **Goal**: Users can save practice sessions and review any past session with the full fader UI to compare their delivery to the reference
@@ -67,5 +72,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation + Import + Transcription | 3/3 | Complete   | 2026-03-26 |
-| 2. Recording + Fader + View Modes | 0/? | Not started | - |
+| 2. Recording + Fader + View Modes | 0/3 | Planned | - |
 | 3. Sessions + Review | 0/? | Not started | - |
