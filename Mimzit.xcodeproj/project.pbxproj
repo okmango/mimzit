@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0D0AC0B9D3B8337632EB0933 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C2C67AA7F3695A1B02095 /* KeychainService.swift */; };
+		AA11BB22CC33DD44EE55FF66 /* CaptureEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11BB22CC33DD44EE55FF67 /* CaptureEngine.swift */; };
+		BB22CC33DD44EE55FF66AA11 /* PlaybackEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB22CC33DD44EE55FF66AA12 /* PlaybackEngine.swift */; };
+		CC33DD44EE55FF66AA11BB22 /* ViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC33DD44EE55FF66AA11BB23 /* ViewMode.swift */; };
 		30B560A8DFD791E7B99DB6C2 /* AudioSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10376A28DF6F44D6D4840C49 /* AudioSessionManager.swift */; };
 		31138DB083E80713642157CB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73AEE0578839E48A2A1F76 /* Theme.swift */; };
 		3B9411CA7F194F0A11773B5A /* ContentItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51251C1C09A535C0FCF56946 /* ContentItemRow.swift */; };
@@ -34,6 +37,9 @@
 
 /* Begin PBXFileReference section */
 		10376A28DF6F44D6D4840C49 /* AudioSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionManager.swift; sourceTree = "<group>"; };
+		AA11BB22CC33DD44EE55FF67 /* CaptureEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureEngine.swift; sourceTree = "<group>"; };
+		BB22CC33DD44EE55FF66AA12 /* PlaybackEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackEngine.swift; sourceTree = "<group>"; };
+		CC33DD44EE55FF66AA11BB23 /* ViewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMode.swift; sourceTree = "<group>"; };
 		2A65B9509E44210FD9929296 /* VideoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPicker.swift; sourceTree = "<group>"; };
 		37681A94A634DCCD3A5B6979 /* FileVault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileVault.swift; sourceTree = "<group>"; };
 		3F9D852F1F9EA84511AC42B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -62,6 +68,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		DD44EE55FF66AA11BB22CC33 /* Engines */ = {
+			isa = PBXGroup;
+			children = (
+				AA11BB22CC33DD44EE55FF67 /* CaptureEngine.swift */,
+				BB22CC33DD44EE55FF66AA12 /* PlaybackEngine.swift */,
+			);
+			path = Engines;
+			sourceTree = "<group>";
+		};
 		17557F0218023A53177F7E66 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +128,7 @@
 			children = (
 				F333DD4DA555949ACDC6F34D /* MimzitMigrationPlan.swift */,
 				4C002A991A1809D8CC1A073F /* ReferenceContent.swift */,
+				CC33DD44EE55FF66AA11BB23 /* ViewMode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -163,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				8F0E60BC26E9D3813BA041D3 /* App */,
+				DD44EE55FF66AA11BB22CC33 /* Engines */,
 				F91AE8EEEBC328702B7D101F /* Features */,
 				7819EDAD9B3E13574BD8E2F2 /* Models */,
 				A13A0B6487399AB56D8F4561 /* Resources */,
@@ -261,6 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				561C462E4A5AD14BB23AFD12 /* APIKeyPromptSheet.swift in Sources */,
+				AA11BB22CC33DD44EE55FF66 /* CaptureEngine.swift in Sources */,
+				BB22CC33DD44EE55FF66AA11 /* PlaybackEngine.swift in Sources */,
+				CC33DD44EE55FF66AA11BB22 /* ViewMode.swift in Sources */,
 				9485B9BADB392182561F5E67 /* AudioPreprocessor.swift in Sources */,
 				5AE82A421E05482ABDD95170 /* AudioRecorderView.swift in Sources */,
 				30B560A8DFD791E7B99DB6C2 /* AudioSessionManager.swift in Sources */,
