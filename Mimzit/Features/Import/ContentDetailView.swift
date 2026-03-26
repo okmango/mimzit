@@ -6,7 +6,7 @@ import AVKit
 /// Per UI-SPEC Screen 2:
 /// - Media preview (video thumbnail/player, audio waveform, text preview)
 /// - Title and metadata (type, duration)
-/// - Transcript section (ready indicator, transcribe button placeholder, or nothing for text)
+/// - Transcript section with live TranscriptionService integration (Plan 03)
 /// - "Start Practice" button (disabled in Phase 1, wired in Phase 2)
 ///
 /// Presented as a `.sheet` from ContentLibraryView list row tap.
@@ -15,6 +15,11 @@ struct ContentDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var player: AVPlayer?
     @State private var isPlayingAudio = false
+
+    // MARK: - Transcription State (Plan 03)
+    @State private var transcriptionService = TranscriptionService()
+    @State private var transcribeState: TranscribeState = .idle
+    @State private var showAPIKeyPrompt = false
 
     var body: some View {
         NavigationStack {
@@ -65,10 +70,18 @@ struct ContentDetailView: View {
                     Button("Done") { dismiss() }
                 }
             }
+            .onAppear {
+                if content.transcript != nil {
+                    transcribeState = .complete
+                }
+            }
             .onDisappear {
                 player?.pause()
                 player = nil
                 isPlayingAudio = false
+            }
+            .sheet(isPresented: $showAPIKeyPrompt) {
+                APIKeyPromptSheet(onSave: startTranscription)
             }
         }
     }
@@ -160,31 +173,40 @@ struct ContentDetailView: View {
 
     @ViewBuilder
     private var transcriptSection: some View {
-        switch content.contentType {
-        case .text:
-            EmptyView()
-        default:
+        if content.contentType != .text {
+            TranscribeButtonView(state: transcribeState, onTranscribe: startTranscription)
+
             if let transcript = content.transcript {
-                VStack(alignment: .leading, spacing: 8) {
-                    Label("Transcript ready", systemImage: "checkmark.circle.fill")
-                        .font(.caption)
-                        .foregroundStyle(Color.green)
-                    ScrollView {
-                        Text(transcript)
-                            .font(.body)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    .frame(maxHeight: 200)
+                Text(transcript)
+                    .font(.body)
+                    .padding(.top, 8)
+            }
+        }
+    }
+
+    // MARK: - Transcription
+
+    private func startTranscription() {
+        Task {
+            transcribeState = .inProgress
+            do {
+                let text = try await transcriptionService.transcribe(content: content)
+                content.transcript = text  // TRANS-03: save to SwiftData model
+                transcribeState = .complete
+            } catch let error as TranscriptionError {
+                switch error {
+                case .noAPIKey:
+                    transcribeState = .idle
+                    showAPIKeyPrompt = true
+                case .noNetwork:
+                    transcribeState = .error("Transcription failed. Check your connection and try again.")
+                case .fileTooLarge:
+                    transcribeState = .error("Audio is too long to transcribe. Try a shorter clip.")
+                default:
+                    transcribeState = .error(error.localizedDescription)
                 }
-            } else {
-                Button {
-                    // TODO: wire in Plan 03
-                    print("TODO: wire transcription in Plan 03")
-                } label: {
-                    Label("Transcribe Audio", systemImage: "waveform.badge.sparkles")
-                }
-                .buttonStyle(.bordered)
-                .foregroundStyle(Theme.accent)
+            } catch {
+                transcribeState = .error(error.localizedDescription)
             }
         }
     }
