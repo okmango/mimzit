@@ -28,10 +28,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. App correctly configures audio routing before any media starts (no silent overwrite by AVCaptureSession)
   4. App detects missing headphones and warns user before they attempt to record
   5. OpenAI API key can be stored and retrieved securely; app falls back to on-device recognition when no key is present
-**Plans:** 3 plans
+**Plans:** 1/3 plans executed
 
 Plans:
-- [ ] 01-01-PLAN.md — Project scaffold, data models, and all foundation/transcription services
+- [x] 01-01-PLAN.md — Project scaffold, data models, and all foundation/transcription services
 - [ ] 01-02-PLAN.md — Content library UI, all import flows, content detail/preview, and Settings
 - [ ] 01-03-PLAN.md — Transcription UI wiring, API key lazy prompt, and Phase 1 verification checkpoint
 
@@ -66,6 +66,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation + Import + Transcription | 0/3 | Planning complete | - |
+| 1. Foundation + Import + Transcription | 1/3 | In Progress|  |
 | 2. Recording + Fader + View Modes | 0/? | Not started | - |
 | 3. Sessions + Review | 0/? | Not started | - |

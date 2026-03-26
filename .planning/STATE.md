@@ -2,16 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Phase 1 UI-SPEC approved
-last_updated: "2026-03-25T23:16:55.179Z"
-last_activity: 2026-03-25 — Roadmap created
+status: Ready to execute
+stopped_at: Completed 01-01-PLAN.md
+last_updated: "2026-03-26T12:53:38.178Z"
 progress:
   total_phases: 3
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
-  percent: 0
+  total_plans: 3
+  completed_plans: 1
 ---
 
 # Project State
@@ -21,16 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-25)
 
 **Core value:** Users can record themselves alongside a reference speaker video and visually compare their delivery side-by-side
-**Current focus:** Phase 1 — Foundation + Import + Transcription
+**Current focus:** Phase 01 — foundation-import-transcription
 
 ## Current Position
 
-Phase: 1 of 3 (Foundation + Import + Transcription)
-Plan: 0 of ? in current phase
-Status: Ready to plan
-Last activity: 2026-03-25 — Roadmap created
-
-Progress: [░░░░░░░░░░] 0%
+Phase: 01 (foundation-import-transcription) — EXECUTING
+Plan: 2 of 3
 
 ## Performance Metrics
 
@@ -52,6 +46,7 @@ Progress: [░░░░░░░░░░] 0%
 - Trend: -
 
 *Updated after each plan completion*
+| Phase 01-foundation-import-transcription P01 | 7 | 2 tasks | 19 files |
 
 ## Accumulated Context
 
@@ -64,6 +59,9 @@ Recent decisions affecting current work:
 - CALayer opacity (not AVMutableVideoComposition) for live fader — GPU composited, zero CPU cost
 - Store relative filenames only in SwiftData; FileVault resolves to absolute URLs at runtime
 - Record CACurrentMediaTime() at recording start (not recordedDuration) for review sync offset
+- [Phase 01-foundation-import-transcription]: iOS 17.0 minimum deployment target — SwiftData requires iOS 17+, iOS 18 at 88%+ adoption
+- [Phase 01-foundation-import-transcription]: Removed deprecated .allowBluetooth AVAudioSession option (renamed to .allowBluetoothHFP in iOS 8); using .allowBluetoothA2DP + .defaultToSpeaker
+- [Phase 01-foundation-import-transcription]: FileVault relative-filename pattern: store path in SwiftData, resolve to absolute URL at runtime — never store binary data in SwiftData
 
 ### Pending Todos
 
@@ -76,6 +74,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-25T23:16:55.176Z
-Stopped at: Phase 1 UI-SPEC approved
-Resume file: .planning/phases/01-foundation-import-transcription/01-UI-SPEC.md
+Last session: 2026-03-26T12:53:38.175Z
+Stopped at: Completed 01-01-PLAN.md
+Resume file: None

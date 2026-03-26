@@ -1,4 +1,4 @@
-# Requirements: Spikzit
+# Requirements: Mimzit
 
 **Defined:** 2026-03-25
 **Core Value:** Users can record themselves alongside a reference speaker video and visually compare their delivery side-by-side
@@ -9,11 +9,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Foundation
 
-- [ ] **FOUND-01**: App configures AVAudioSession in .playAndRecord mode before any media engine starts
-- [ ] **FOUND-02**: App disables AVCaptureSession.automaticallyConfiguresApplicationAudioSession to prevent silent audio config overwrite
-- [ ] **FOUND-03**: App detects headphone/AirPods connection and warns user if no headphones detected before recording
-- [ ] **FOUND-04**: App requests camera and microphone permissions with clear explanations before first use
-- [ ] **FOUND-05**: OpenAI API key stored securely in iOS Keychain (reuse sezit KeychainHelper pattern)
+- [x] **FOUND-01**: App configures AVAudioSession in .playAndRecord mode before any media engine starts
+- [x] **FOUND-02**: App disables AVCaptureSession.automaticallyConfiguresApplicationAudioSession to prevent silent audio config overwrite
+- [x] **FOUND-03**: App detects headphone/AirPods connection and warns user if no headphones detected before recording
+- [x] **FOUND-04**: App requests camera and microphone permissions with clear explanations before first use
+- [x] **FOUND-05**: OpenAI API key stored securely in iOS Keychain (reuse sezit KeychainHelper pattern)
 
 ### Content Import
 
@@ -25,9 +25,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Transcription
 
-- [ ] **TRANS-01**: User can request AI transcription of reference video/audio via OpenAI Whisper API
-- [ ] **TRANS-02**: Audio is preprocessed before sending to Whisper (silence removal + 1.5x speedup, reuse sezit AudioPreprocessor pattern)
-- [ ] **TRANS-03**: Transcription text is saved alongside the reference content as synchronized transcript
+- [x] **TRANS-01**: User can request AI transcription of reference video/audio via OpenAI Whisper API
+- [x] **TRANS-02**: Audio is preprocessed before sending to Whisper (silence removal + 1.5x speedup, reuse sezit AudioPreprocessor pattern)
+- [x] **TRANS-03**: Transcription text is saved alongside the reference content as synchronized transcript
 - [ ] **TRANS-04**: Fallback to on-device SFSpeechRecognizer when no API key is configured (reuse digzit fallback pattern)
 
 ### Recording
@@ -117,19 +117,19 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01 | Phase 1 | Pending |
-| FOUND-02 | Phase 1 | Pending |
-| FOUND-03 | Phase 1 | Pending |
-| FOUND-04 | Phase 1 | Pending |
-| FOUND-05 | Phase 1 | Pending |
+| FOUND-01 | Phase 1 | Complete |
+| FOUND-02 | Phase 1 | Complete |
+| FOUND-03 | Phase 1 | Complete |
+| FOUND-04 | Phase 1 | Complete |
+| FOUND-05 | Phase 1 | Complete |
 | IMPORT-01 | Phase 1 | Pending |
 | IMPORT-02 | Phase 1 | Pending |
 | IMPORT-03 | Phase 1 | Pending |
 | IMPORT-04 | Phase 1 | Pending |
 | IMPORT-05 | Phase 1 | Pending |
-| TRANS-01 | Phase 1 | Pending |
-| TRANS-02 | Phase 1 | Pending |
-| TRANS-03 | Phase 1 | Pending |
+| TRANS-01 | Phase 1 | Complete |
+| TRANS-02 | Phase 1 | Complete |
+| TRANS-03 | Phase 1 | Complete |
 | TRANS-04 | Phase 1 | Pending |
 | REC-01 | Phase 2 | Pending |
 | REC-02 | Phase 2 | Pending |
