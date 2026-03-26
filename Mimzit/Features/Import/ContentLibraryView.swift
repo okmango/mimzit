@@ -16,10 +16,11 @@ struct ContentLibraryView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \ReferenceContent.createdAt, order: .reverse) private var items: [ReferenceContent]
 
-    @State private var showAddDialog = false
     @State private var showVideoPicker = false
     @State private var showAudioPicker = false
     @State private var showScriptEditor = false
+    @State private var showAudioRecorder = false
+    @State private var showDictation = false
     @State private var selectedItem: ReferenceContent?
     @State private var itemToDelete: ReferenceContent?
     @State private var showDeleteConfirmation = false
@@ -49,18 +50,28 @@ struct ContentLibraryView: View {
             .navigationTitle("Library")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        showAddDialog = true
+                    Menu {
+                        Button { showVideoPicker = true } label: {
+                            Label("Import Video", systemImage: "film")
+                        }
+                        Button { showAudioPicker = true } label: {
+                            Label("Import Audio", systemImage: "waveform")
+                        }
+                        Button { showAudioRecorder = true } label: {
+                            Label("Record Audio", systemImage: "mic")
+                        }
+                        Divider()
+                        Button { showScriptEditor = true } label: {
+                            Label("Type a Script", systemImage: "doc.text")
+                        }
+                        Button { showDictation = true } label: {
+                            Label("Dictate Script", systemImage: "mic.badge.plus")
+                        }
                     } label: {
                         Image(systemName: "plus")
                     }
                     .accessibilityLabel("Add reference content")
                 }
-            }
-            .confirmationDialog("Add Reference Content", isPresented: $showAddDialog, titleVisibility: .visible) {
-                Button("Import Video") { showVideoPicker = true }
-                Button("Import Audio") { showAudioPicker = true }
-                Button("Type a Script") { showScriptEditor = true }
             }
             .sheet(isPresented: $showVideoPicker) {
                 VideoPicker(
@@ -84,6 +95,16 @@ struct ContentLibraryView: View {
                 TextScriptEditorView { title, text in
                     saveScript(title: title, text: text)
                 }
+            }
+            .sheet(isPresented: $showAudioRecorder) {
+                AudioRecorderView(mode: .audio, onSaveAudio: { url, duration in
+                    Task { await handleRecordedAudio(tempURL: url, duration: duration) }
+                })
+            }
+            .sheet(isPresented: $showDictation) {
+                AudioRecorderView(mode: .dictation, onSaveScript: { transcript in
+                    saveScript(title: "Dictated Script", text: transcript)
+                })
             }
             .sheet(item: $selectedItem) { item in
                 ContentDetailView(content: item)
@@ -174,6 +195,29 @@ struct ContentLibraryView: View {
         let title = securityScopedURL.deletingPathExtension().lastPathComponent
             .replacingOccurrences(of: "_", with: " ")
             .replacingOccurrences(of: "-", with: " ")
+
+        let item = ReferenceContent(
+            title: title,
+            contentType: .audio,
+            filename: filename,
+            duration: duration
+        )
+        modelContext.insert(item)
+    }
+
+    private func handleRecordedAudio(tempURL: URL, duration: TimeInterval) async {
+        isImporting = true
+        defer { isImporting = false }
+
+        let filename = "\(UUID().uuidString).m4a"
+        do {
+            _ = try FileVault.store(sourceURL: tempURL, filename: filename)
+        } catch { return }
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        let title = "Recording \(dateFormatter.string(from: Date()))"
 
         let item = ReferenceContent(
             title: title,

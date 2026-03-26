@@ -14,6 +14,7 @@
 		42690E37C732B65FED72C35F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5106F5913D6CC6FE52EE9DF6 /* ContentView.swift */; };
 		4647EF1067706D4BCD33B2A4 /* ContentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6413DADAC5030C72AD56EC /* ContentDetailView.swift */; };
 		561C462E4A5AD14BB23AFD12 /* APIKeyPromptSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DCD365E7CBB3038F397DB5 /* APIKeyPromptSheet.swift */; };
+		5AE82A421E05482ABDD95170 /* AudioRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437311115E40DF6787D81161 /* AudioRecorderView.swift */; };
 		5F4FDE949451F5F05228208A /* WhisperAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69FB76837F5B0F21D504B6A /* WhisperAPIClient.swift */; };
 		7E12131B5DA7E6492589E4A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE504B92AA300B904F1AE3F5 /* Assets.xcassets */; };
 		93DE936425CDE91939CD0E3E /* VideoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65B9509E44210FD9929296 /* VideoPicker.swift */; };
@@ -36,6 +37,7 @@
 		2A65B9509E44210FD9929296 /* VideoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPicker.swift; sourceTree = "<group>"; };
 		37681A94A634DCCD3A5B6979 /* FileVault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileVault.swift; sourceTree = "<group>"; };
 		3F9D852F1F9EA84511AC42B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		437311115E40DF6787D81161 /* AudioRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderView.swift; sourceTree = "<group>"; };
 		4C002A991A1809D8CC1A073F /* ReferenceContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceContent.swift; sourceTree = "<group>"; };
 		5106F5913D6CC6FE52EE9DF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		51251C1C09A535C0FCF56946 /* ContentItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentItemRow.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		721439DA81FCE53F32F8BF7A /* Import */ = {
 			isa = PBXGroup;
 			children = (
+				437311115E40DF6787D81161 /* AudioRecorderView.swift */,
 				FC6413DADAC5030C72AD56EC /* ContentDetailView.swift */,
 				7837C6EA60F832319A6D96E6 /* ContentLibraryView.swift */,
 				C461578E447B25509B7C7576 /* TextScriptEditorView.swift */,
@@ -223,7 +226,6 @@
 				};
 			};
 			buildConfigurationList = 1F7DD7B65B4C2BE6CDB2D50E /* Build configuration list for PBXProject "Mimzit" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -233,6 +235,7 @@
 			mainGroup = 1D2F9D36B5976AC4581CD08B;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
+			productRefGroup = 65FAA29C40B3049601E2F0ED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -259,6 +262,7 @@
 			files = (
 				561C462E4A5AD14BB23AFD12 /* APIKeyPromptSheet.swift in Sources */,
 				9485B9BADB392182561F5E67 /* AudioPreprocessor.swift in Sources */,
+				5AE82A421E05482ABDD95170 /* AudioRecorderView.swift in Sources */,
 				30B560A8DFD791E7B99DB6C2 /* AudioSessionManager.swift in Sources */,
 				4647EF1067706D4BCD33B2A4 /* ContentDetailView.swift in Sources */,
 				3B9411CA7F194F0A11773B5A /* ContentItemRow.swift in Sources */,
@@ -298,7 +302,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.okmango.mimzit;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -378,7 +382,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.okmango.mimzit;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

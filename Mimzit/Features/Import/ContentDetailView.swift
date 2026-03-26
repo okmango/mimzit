@@ -66,8 +66,10 @@ struct ContentDetailView: View {
             .navigationTitle(content.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }
+                ToolbarItem(placement: .cancellationAction) {
+                    Button { dismiss() } label: {
+                        Image(systemName: "chevron.left")
+                    }
                 }
             }
             .onAppear {
@@ -109,8 +111,7 @@ struct ContentDetailView: View {
                   let uiImage = UIImage(contentsOfFile: FileVault.url(for: thumbFilename).path) {
             Image(uiImage: uiImage)
                 .resizable()
-                .scaledToFill()
-                .clipped()
+                .scaledToFit()
                 .contentShape(Rectangle())
                 .onTapGesture { startVideoPlayback() }
                 .overlay(alignment: .center) {
