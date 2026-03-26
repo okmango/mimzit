@@ -21,6 +21,9 @@ struct ContentDetailView: View {
     @State private var transcribeState: TranscribeState = .idle
     @State private var showAPIKeyPrompt = false
 
+    // MARK: - Recording Navigation (Phase 2)
+    @State private var showRecording = false
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -55,11 +58,15 @@ struct ContentDetailView: View {
 
                     Spacer(minLength: 24)
 
-                    // Start Practice (disabled Phase 1, wired in Phase 2)
-                    Button("Start Practice") {}
-                        .buttonStyle(.borderedProminent)
-                        .disabled(true)
-                        .frame(maxWidth: .infinity)
+                    // Start Practice — wired in Phase 2 via fullScreenCover
+                    Button("Start Practice") {
+                        showRecording = true
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .frame(maxWidth: .infinity)
+                    .fullScreenCover(isPresented: $showRecording) {
+                        RecordingView(content: content)
+                    }
                 }
                 .padding(16)
             }

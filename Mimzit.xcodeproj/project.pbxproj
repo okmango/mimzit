@@ -20,6 +20,7 @@
 		5F4FDE949451F5F05228208A /* WhisperAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69FB76837F5B0F21D504B6A /* WhisperAPIClient.swift */; };
 		6DEBD3F7E7A68272D2A422B9 /* CompositorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1890FB3A02E3B4EE58DC0992 /* CompositorView.swift */; };
 		7E12131B5DA7E6492589E4A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE504B92AA300B904F1AE3F5 /* Assets.xcassets */; };
+		86FFA43F5EA14E34CB24E554 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFDC069FA85E8C85A97C596 /* RecordingView.swift */; };
 		88C397FDB1B14C17D29E7473 /* TeleprompterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01447ADA0B335F3EE884F65E /* TeleprompterView.swift */; };
 		921CCCD4EC029DF0FBAA995D /* ViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDF59F927236A7F1D5DCF72 /* ViewMode.swift */; };
 		93DE936425CDE91939CD0E3E /* VideoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65B9509E44210FD9929296 /* VideoPicker.swift */; };
@@ -74,6 +75,7 @@
 		F333DD4DA555949ACDC6F34D /* MimzitMigrationPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimzitMigrationPlan.swift; sourceTree = "<group>"; };
 		F52F9A0EC93AB9E3CA639DBE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FC6413DADAC5030C72AD56EC /* ContentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailView.swift; sourceTree = "<group>"; };
+		FDFDC069FA85E8C85A97C596 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		FF0B55F5ECBC54BBD99533E9 /* MimzitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimzitApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 			children = (
 				1890FB3A02E3B4EE58DC0992 /* CompositorView.swift */,
 				14CED509E9DCE0A8C3241F0C /* FaderView.swift */,
+				FDFDC069FA85E8C85A97C596 /* RecordingView.swift */,
 				DBEDD90C114C6E9E5CC37003 /* RecordingViewModel.swift */,
 				01447ADA0B335F3EE884F65E /* TeleprompterView.swift */,
 				CD43502DB611B4D28C838B63 /* ViewModeControl.swift */,
@@ -318,6 +321,7 @@
 				BAB9FF5788FDF3665898C075 /* MimzitMigrationPlan.swift in Sources */,
 				EF96BF22F04CE980DB49B0B1 /* NetworkMonitor.swift in Sources */,
 				BE1B11A070FAA88FB66C480B /* PlaybackEngine.swift in Sources */,
+				86FFA43F5EA14E34CB24E554 /* RecordingView.swift in Sources */,
 				2D10DCF2C4C349F84F7401CF /* RecordingViewModel.swift in Sources */,
 				B854CF517658747BF3753495 /* ReferenceContent.swift in Sources */,
 				B4B6B8D94FF92E1E55592FDF /* SettingsView.swift in Sources */,
