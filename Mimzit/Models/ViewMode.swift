@@ -71,4 +71,21 @@ enum ViewMode: String, CaseIterable {
     var videoFaderRightLabel: String {
         self == .textOverlay ? "TEXT" : "CAM"
     }
+
+    // MARK: - Review Mode Labels (D-05, D-06)
+
+    /// Segment label for review mode. "Cam" becomes "You" per D-05/D-06.
+    var reviewSegmentLabel: String {
+        switch self {
+        case .reference: return "Ref"
+        case .camera: return "You"
+        case .blend: return "Blend"
+        case .textOverlay: return "Text"
+        }
+    }
+
+    /// Right-side fader label for review mode. "CAM" becomes "YOU" per D-05.
+    var reviewVideoFaderRightLabel: String {
+        self == .textOverlay ? "TEXT" : "YOU"
+    }
 }

@@ -42,6 +42,9 @@
 		DB3337A3EFB5EC660FACA6A6 /* ViewModeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43502DB611B4D28C838B63 /* ViewModeControl.swift */; };
 		EBD84B6515A57B317CCC39FD /* TextScriptEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C461578E447B25509B7C7576 /* TextScriptEditorView.swift */; };
 		EF96BF22F04CE980DB49B0B1 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CA2D0B03ADFD687191E9E /* NetworkMonitor.swift */; };
+		F7A8B9C0D1E2F3A4B5C6D7E8 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = G8A9B0C1D2E3F4A5B6C7D8E9 /* ReviewView.swift */; };
+		H9B0C1D2E3F4A5B6C7D8E9F0 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = I0C1D2E3F4A5B6C7D8E9F0A1 /* ReviewViewModel.swift */; };
+		J1D2E3F4A5B6C7D8E9F0A1B2 /* ReviewCompositorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = K2E3F4A5B6C7D8E9F0A1B2C3 /* ReviewCompositorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +86,9 @@
 		FC6413DADAC5030C72AD56EC /* ContentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailView.swift; sourceTree = "<group>"; };
 		FDFDC069FA85E8C85A97C596 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		FF0B55F5ECBC54BBD99533E9 /* MimzitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimzitApp.swift; sourceTree = "<group>"; };
+		G8A9B0C1D2E3F4A5B6C7D8E9 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		I0C1D2E3F4A5B6C7D8E9F0A1 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
+		K2E3F4A5B6C7D8E9F0A1B2C3 /* ReviewCompositorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCompositorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -238,11 +244,22 @@
 			path = Sessions;
 			sourceTree = "<group>";
 		};
+		L3F4A5B6C7D8E9F0A1B2C3D4 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				G8A9B0C1D2E3F4A5B6C7D8E9 /* ReviewView.swift */,
+				I0C1D2E3F4A5B6C7D8E9F0A1 /* ReviewViewModel.swift */,
+				K2E3F4A5B6C7D8E9F0A1B2C3 /* ReviewCompositorView.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
 		F91AE8EEEBC328702B7D101F /* Features */ = {
 			isa = PBXGroup;
 			children = (
 				721439DA81FCE53F32F8BF7A /* Import */,
 				0DF46219F3909DA591FDD750 /* Recording */,
+				L3F4A5B6C7D8E9F0A1B2C3D4 /* Review */,
 				A7B8C9D0E1F2A3B4C5D6E7F8 /* Sessions */,
 				F4E1E04E1EB0A48A11BC09E3 /* Settings */,
 				DF9DEC1F41628F7A72BB8AEE /* Transcription */,
@@ -340,6 +357,9 @@
 				86FFA43F5EA14E34CB24E554 /* RecordingView.swift in Sources */,
 				2D10DCF2C4C349F84F7401CF /* RecordingViewModel.swift in Sources */,
 				B854CF517658747BF3753495 /* ReferenceContent.swift in Sources */,
+				J1D2E3F4A5B6C7D8E9F0A1B2 /* ReviewCompositorView.swift in Sources */,
+				F7A8B9C0D1E2F3A4B5C6D7E8 /* ReviewView.swift in Sources */,
+				H9B0C1D2E3F4A5B6C7D8E9F0 /* ReviewViewModel.swift in Sources */,
 				A1B2C3D4E5F6A7B8C9D0E1F2 /* Session.swift in Sources */,
 				C3D4E5F6A7B8C9D0E1F2A3B4 /* SessionHistoryView.swift in Sources */,
 				E5F6A7B8C9D0E1F2A3B4C5D6 /* SessionRowView.swift in Sources */,
