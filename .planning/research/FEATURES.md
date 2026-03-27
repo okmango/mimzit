@@ -44,7 +44,7 @@ Features that set the product apart. Not required, but valued.
 | AI phoneme / pronunciation scoring | ShadowSpeak's flagship feature; users see "AI feedback" as a quality signal | Requires training data, ML model, server infrastructure, or licensed APIs; scope is a full separate product; errors in phoneme scoring generate user complaints that undermine trust | Defer to v2+; ship the visual comparison loop first; visual self-awareness is the actual gap |
 | Cloud sync / iCloud backup | Users are used to apps syncing across devices | Adds server or CloudKit complexity; increases privacy surface; session files can be large (video); conflicts with "fully offline" pitch | Consider iCloud Drive export as a manual export option in v1.x, not auto-sync |
 | Social sharing / "post your session" | Gamification; users may want to share progress | Requires encoding pipeline, watermarking, privacy review; videos contain user's face and voice — liability and moderation surface | Let users export to Camera Roll and share however they choose via iOS share sheet |
-| Built-in content library / curated speakers | ShadowSpeak and Speak Pro offer this; users may expect it | Content licensing is complex; curated libraries need curation effort and legal review; limits flexibility; Spikzit's model (user-supplied) is actually a stronger proposition | Document in onboarding that users can import any video from their Camera Roll — TED talks, movie scenes, interviews |
+| Built-in content library / curated speakers | ShadowSpeak and Speak Pro offer this; users may expect it | Content licensing is complex; curated libraries need curation effort and legal review; limits flexibility; Mimzit's model (user-supplied) is actually a stronger proposition | Document in onboarding that users can import any video from their Camera Roll — TED talks, movie scenes, interviews |
 | Real-time AI feedback during recording | "Correct me as I speak" is appealing | Inference during AVCaptureSession increases thermal load; on-device speech-to-text during front camera capture is untested territory for latency; degrades core UX if laggy | Post-session review loop is more effective for delivery training anyway; AI is a v2 consideration |
 | Teleprompter / script display | SpeakVibe has this; actors want it | Different product category; adds complexity; competes for screen real estate with video comparison UI | Out of scope; the comparison loop is the product |
 | Multi-device recording (iPad + iPhone) | Pro coaches may want a wider angle | AVFoundation does not support cross-device capture; requires Multipeer Connectivity or server roundtrip; massive complexity | Single iPhone is the constraint; good framing instructions in onboarding serve this need |
@@ -176,7 +176,7 @@ Features to defer until product-market fit is established.
 
 ## Competitor Feature Analysis
 
-| Feature | ShadowSpeak (web PWA) | Speak Pro (iOS) | TubeShad (iOS) | Orai (iOS) | Speeko (iOS) | SpeakVibe (iOS) | Spikzit (planned) |
+| Feature | ShadowSpeak (web PWA) | Speak Pro (iOS) | TubeShad (iOS) | Orai (iOS) | Speeko (iOS) | SpeakVibe (iOS) | Mimzit (planned) |
 |---------|----------------------|-----------------|----------------|------------|--------------|-----------------|-------------------|
 | Content source | Curated speaker library | YouTube videos via app | YouTube search | User's own speech (no reference) | Structured lessons | User's own speech | User-imported from Camera Roll |
 | Record yourself | Yes (audio) | Yes (audio) | Yes (audio) | Yes (audio) | Yes (audio) | Yes (video) | Yes (video — front camera) |
@@ -209,5 +209,5 @@ No iOS app combines: (1) user-supplied video as reference, (2) simultaneous fron
 
 ---
 
-*Feature research for: Native iOS speech shadowing app with video comparison (Spikzit)*
+*Feature research for: Native iOS speech shadowing app with video comparison (Mimzit)*
 *Researched: 2026-03-25*

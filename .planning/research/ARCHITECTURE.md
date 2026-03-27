@@ -70,9 +70,9 @@
 ## Recommended Project Structure
 
 ```
-Spikzit/
+Mimzit/
 ├── App/
-│   ├── SpikzitApp.swift          # @main, ModelContainer setup, AudioSessionManager init
+│   ├── MimzitApp.swift          # @main, ModelContainer setup, AudioSessionManager init
 │   └── AppCoordinator.swift      # Top-level navigation state
 ├── Features/
 │   ├── Import/
@@ -179,7 +179,7 @@ func setVideoBlend(_ value: Float) {
 **Example:**
 ```swift
 class CaptureEngine {
-    private let sessionQueue = DispatchQueue(label: "com.spikzit.capture", qos: .userInitiated)
+    private let sessionQueue = DispatchQueue(label: "com.mimzit.capture", qos: .userInitiated)
 
     func startSession() {
         sessionQueue.async { [weak self] in
@@ -487,5 +487,5 @@ This is a single-user, local-only app. Traditional user-scale concerns don't app
 
 ---
 
-*Architecture research for: iOS speech shadowing app (Spikzit) — simultaneous video playback + camera recording*
+*Architecture research for: iOS speech shadowing app (Mimzit) — simultaneous video playback + camera recording*
 *Researched: 2026-03-25*

@@ -165,5 +165,5 @@ If the custom compositor path is chosen later, add no external dependencies — 
 
 ---
 
-*Stack research for: Spikzit — native iOS speech shadowing app with video comparison*
+*Stack research for: Mimzit — native iOS speech shadowing app with video comparison*
 *Researched: 2026-03-25*

@@ -1,7 +1,7 @@
 <!-- GSD:project-start source:PROJECT.md -->
 ## Project
 
-**Spikzit**
+**Mimzit**
 
 A native iOS app for speech shadowing with multi-content comparison. Users import reference content (video, audio, or text), record themselves mimicking the speaker's delivery in real-time, and review both recordings with a DJ-fader-style overlay UI that blends video and audio independently. Supports AI transcription (OpenAI Whisper) for text overlay on videos, switchable view modes during recording, and text-only teleprompter mode. Built for public speaking training, actor rehearsal, and presentation coaching.
 

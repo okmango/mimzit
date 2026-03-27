@@ -273,5 +273,5 @@ If you must use `AVAssetWriter`, disable `AVCaptureConnection.preferredVideoStab
 - [Can I continue recording video when the app is backgrounded? — Apple Developer Forums (thread 61406)](https://developer.apple.com/forums/thread/61406)
 
 ---
-*Pitfalls research for: Native iOS AVPlayer + AVCaptureSession simultaneous video recording and playback (Spikzit)*
+*Pitfalls research for: Native iOS AVPlayer + AVCaptureSession simultaneous video recording and playback (Mimzit)*
 *Researched: 2026-03-25*

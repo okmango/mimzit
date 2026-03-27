@@ -1,4 +1,4 @@
-# Spikzit
+# Mimzit
 
 ## What This Is
 

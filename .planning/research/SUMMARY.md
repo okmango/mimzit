@@ -1,13 +1,13 @@
 # Project Research Summary
 
-**Project:** Spikzit
+**Project:** Mimzit
 **Domain:** Native iOS speech shadowing app — simultaneous video playback + front camera recording with DJ-fader visual blend
 **Researched:** 2026-03-25
 **Confidence:** HIGH
 
 ## Executive Summary
 
-Spikzit is a native iOS app in a category with no direct competitor. Every existing speech shadowing app (ShadowSpeak, TubeShad, Speak Pro, SpeakVibe) records audio-only or video-only. None combine simultaneous reference video playback with live front-camera capture and a real-time visual blend control. The entire product value lives in one interaction: the DJ-fader that lets the user slide between seeing themselves and seeing the reference speaker, both video and audio, in real time. Everything else is scaffolding to make that interaction possible.
+Mimzit is a native iOS app in a category with no direct competitor. Every existing speech shadowing app (ShadowSpeak, TubeShad, Speak Pro, SpeakVibe) records audio-only or video-only. None combine simultaneous reference video playback with live front-camera capture and a real-time visual blend control. The entire product value lives in one interaction: the DJ-fader that lets the user slide between seeing themselves and seeing the reference speaker, both video and audio, in real time. Everything else is scaffolding to make that interaction possible.
 
 The recommended technical approach is a pure Apple stack — Swift, SwiftUI, AVFoundation, SwiftData — with no third-party dependencies. The critical architectural insight is that two separate CALayer objects (AVPlayerLayer for reference video, AVCaptureVideoPreviewLayer for the camera) stacked in a UIView, with opacity driven by the fader slider, deliver real-time 60fps blending at near-zero CPU cost via the system GPU compositor. This is the correct approach for live preview. AVMutableVideoComposition is for export pipelines, not live blending, and reaching for it prematurely is the #1 architectural mistake in this domain.
 
@@ -58,7 +58,7 @@ The entire app is buildable on Apple system frameworks with zero external depend
 - iCloud Drive backup — complexity spike, conflicts with "fully offline" positioning
 - Waveform visualization — validate demand first
 
-**Competitive position:** No iOS app combines user-supplied reference video + simultaneous front-camera recording + visual blend comparison. SpeakVibe records video of the user but has no reference video overlay. All audio-only shadowing apps miss the body language and visual delivery dimension entirely. Spikzit's offline / no-account positioning is an additional differentiator in a category where every competitor requires an account.
+**Competitive position:** No iOS app combines user-supplied reference video + simultaneous front-camera recording + visual blend comparison. SpeakVibe records video of the user but has no reference video overlay. All audio-only shadowing apps miss the body language and visual delivery dimension entirely. Mimzit's offline / no-account positioning is an additional differentiator in a category where every competitor requires an account.
 
 **Anti-features to avoid:** YouTube/internet video import (ToS violation, App Store risk), AI phoneme scoring in v1 (scope is a separate product), built-in content library (licensing complexity), real-time AI feedback during recording (thermal load on AVCaptureSession, unproven on-device latency).
 
@@ -116,7 +116,7 @@ The architecture research provides a validated build order. Dependencies flow bo
 
 **Rationale:** The fader is the entire product differentiator. It must be built before saving sessions because there is nothing to validate without it. Import is the prerequisite for any recording — a reference video URL is required. CompositorView gets upgraded to stack two layers and expose setVideoBlend for the fader.
 
-**Delivers:** Complete recording screen — import reference video, two-layer compositor, working DJ-fader (video opacity + audio volume cross-fade), the core Spikzit interaction.
+**Delivers:** Complete recording screen — import reference video, two-layer compositor, working DJ-fader (video opacity + audio volume cross-fade), the core Mimzit interaction.
 
 **Features addressed:** "Import reference video from Camera Roll," "DJ-fader video blend," "DJ-fader audio blend"
 
@@ -230,7 +230,7 @@ Phases with standard patterns (no research needed):
 - byby.dev: SwiftData vs CoreData analysis for greenfield iOS 17+ projects
 
 ### Tertiary (LOW confidence)
-- banuba.com: AVMutableComposition overlay pattern — general confirmation, not Spikzit-specific
+- banuba.com: AVMutableComposition overlay pattern — general confirmation, not Mimzit-specific
 - Simform/Medium: AVAudioSession input device management — community analysis, cross-referenced with Apple docs
 
 ---
