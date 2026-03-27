@@ -30,6 +30,7 @@
 		B1A0A675D951B7C82E82CFC1 /* FaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CED509E9DCE0A8C3241F0C /* FaderView.swift */; };
 		B26146C6D3F744CC0572E851 /* ContentLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7837C6EA60F832319A6D96E6 /* ContentLibraryView.swift */; };
 		B4B6B8D94FF92E1E55592FDF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F9A0EC93AB9E3CA639DBE /* SettingsView.swift */; };
+		A1B2C3D4E5F6A7B8C9D0E1F2 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E5F6A7B8C9D0E1F2A3 /* Session.swift */; };
 		B854CF517658747BF3753495 /* ReferenceContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C002A991A1809D8CC1A073F /* ReferenceContent.swift */; };
 		BAB9FF5788FDF3665898C075 /* MimzitMigrationPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = F333DD4DA555949ACDC6F34D /* MimzitMigrationPlan.swift */; };
 		BE1B11A070FAA88FB66C480B /* PlaybackEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EDEFD6943F035E139F384D /* PlaybackEngine.swift */; };
@@ -52,6 +53,7 @@
 		3F9D852F1F9EA84511AC42B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		437311115E40DF6787D81161 /* AudioRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderView.swift; sourceTree = "<group>"; };
 		4C002A991A1809D8CC1A073F /* ReferenceContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceContent.swift; sourceTree = "<group>"; };
+		B2C3D4E5F6A7B8C9D0E1F2A3 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		5106F5913D6CC6FE52EE9DF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		51251C1C09A535C0FCF56946 /* ContentItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentItemRow.swift; sourceTree = "<group>"; };
 		6386444316B99E8673A5F9C0 /* AudioPreprocessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPreprocessor.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			children = (
 				F333DD4DA555949ACDC6F34D /* MimzitMigrationPlan.swift */,
 				4C002A991A1809D8CC1A073F /* ReferenceContent.swift */,
+				B2C3D4E5F6A7B8C9D0E1F2A3 /* Session.swift */,
 				3EDF59F927236A7F1D5DCF72 /* ViewMode.swift */,
 			);
 			path = Models;
@@ -323,6 +326,7 @@
 				86FFA43F5EA14E34CB24E554 /* RecordingView.swift in Sources */,
 				2D10DCF2C4C349F84F7401CF /* RecordingViewModel.swift in Sources */,
 				B854CF517658747BF3753495 /* ReferenceContent.swift in Sources */,
+				A1B2C3D4E5F6A7B8C9D0E1F2 /* Session.swift in Sources */,
 				B4B6B8D94FF92E1E55592FDF /* SettingsView.swift in Sources */,
 				88C397FDB1B14C17D29E7473 /* TeleprompterView.swift in Sources */,
 				EBD84B6515A57B317CCC39FD /* TextScriptEditorView.swift in Sources */,

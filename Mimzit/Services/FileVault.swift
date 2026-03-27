@@ -104,6 +104,56 @@ enum FileVault {
         return recordingsDirectory.appendingPathComponent(filename)
     }
 
+    // MARK: - Sessions (Phase 3)
+
+    /// The Documents/sessions/ directory for permanent session recording files.
+    ///
+    /// Session recordings are moved here from Documents/recordings/ when auto-saved.
+    /// FileVault.sessionURL(for:) resolves relative filenames to absolute URLs at runtime.
+    static var sessionsDirectory: URL {
+        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            .appendingPathComponent("sessions", isDirectory: true)
+    }
+
+    /// Moves a completed recording from the temp recordings/ directory to permanent sessions/ storage.
+    ///
+    /// - Parameters:
+    ///   - tempURL: The source URL from AVCaptureMovieFileOutput (in Documents/recordings/)
+    ///   - filename: The destination filename (typically `"\(UUID().uuidString).mov"`)
+    /// - Returns: The relative filename stored in Session.recordingFilename
+    /// - Throws: FileManager errors if move fails
+    static func moveRecording(from tempURL: URL, filename: String) throws -> String {
+        try FileManager.default.createDirectory(
+            at: sessionsDirectory,
+            withIntermediateDirectories: true
+        )
+        let destination = sessionsDirectory.appendingPathComponent(filename)
+        if FileManager.default.fileExists(atPath: destination.path) {
+            try FileManager.default.removeItem(at: destination)
+        }
+        try FileManager.default.moveItem(at: tempURL, to: destination)
+        return filename
+    }
+
+    /// Resolves a relative session recording filename to an absolute URL in Documents/sessions/.
+    ///
+    /// - Parameter filename: The relative filename stored in Session.recordingFilename
+    /// - Returns: The absolute URL for review playback
+    static func sessionURL(for filename: String) -> URL {
+        sessionsDirectory.appendingPathComponent(filename)
+    }
+
+    /// Deletes a session recording file from Documents/sessions/.
+    ///
+    /// Silently succeeds if the file doesn't exist.
+    /// - Parameter filename: The relative filename to delete
+    static func deleteSession(filename: String) throws {
+        let fileURL = sessionsDirectory.appendingPathComponent(filename)
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            try FileManager.default.removeItem(at: fileURL)
+        }
+    }
+
     /// Deletes recording files older than 24 hours from Documents/recordings/.
     ///
     /// Call at app launch to prevent unbounded accumulation of temporary recording
