@@ -41,7 +41,7 @@ final class CaptureEngine: NSObject {
     // MARK: - Outputs
 
     /// Exclusively accessed on `sessionQueue`.
-    nonisolated(unsafe) private var movieOutput = AVCaptureMovieFileOutput()
+    nonisolated private var movieOutput = AVCaptureMovieFileOutput()
 
     // MARK: - Published State
 
