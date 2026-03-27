@@ -54,10 +54,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Session Management
 
-- [ ] **SESS-01**: User can save a completed practice session (reference + user recording pair + metadata)
+- [x] **SESS-01**: User can save a completed practice session (reference + user recording pair + metadata)
 - [ ] **SESS-02**: User can view a list of saved sessions sorted by date with timestamps
 - [ ] **SESS-03**: User can delete saved sessions to free storage
-- [ ] **SESS-04**: Session data persists across app launches (SwiftData, reuse digzit schema versioning pattern)
+- [x] **SESS-04**: Session data persists across app launches (SwiftData, reuse digzit schema versioning pattern)
 
 ### Review
 
@@ -144,10 +144,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FADER-02 | Phase 2 | Complete |
 | FADER-03 | Phase 2 | Complete |
 | FADER-04 | Phase 2 | Complete |
-| SESS-01 | Phase 3 | Pending |
+| SESS-01 | Phase 3 | Complete |
 | SESS-02 | Phase 3 | Pending |
 | SESS-03 | Phase 3 | Pending |
-| SESS-04 | Phase 3 | Pending |
+| SESS-04 | Phase 3 | Complete |
 | REV-01 | Phase 3 | Pending |
 | REV-02 | Phase 3 | Pending |
 | REV-03 | Phase 3 | Pending |
