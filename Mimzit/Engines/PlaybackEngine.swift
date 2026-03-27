@@ -14,10 +14,10 @@ import UIKit
 /// `volume` maps directly to `AVPlayer.volume` — the audio fader target.
 /// Range: 0.0 (muted) to 1.0 (full). Default: 1.0 (reference audio fully audible).
 ///
-/// ## Looping
-/// Uses `AVPlayerItemDidPlayToEndTime` notification to seek back to `.zero`
-/// and resume playback automatically (not `AVPlayerLooper` which requires
-/// `AVQueuePlayer` and does not work cleanly with multi-item sessions).
+/// ## End-of-Playback
+/// Observes `AVPlayerItemDidPlayToEndTime` and calls `onFinished` when the
+/// reference content reaches the end. Does NOT auto-loop — the recording
+/// session should stop when the reference finishes.
 @Observable
 @MainActor
 final class PlaybackEngine {
@@ -41,9 +41,13 @@ final class PlaybackEngine {
     /// True while the player is actively playing.
     private(set) var isPlaying = false
 
-    // MARK: - Loop Observer
+    /// Called when the current item reaches the end. Set by RecordingViewModel
+    /// to auto-stop recording when the reference finishes.
+    var onFinished: (() -> Void)?
 
-    private var loopObserver: NSObjectProtocol?
+    // MARK: - End Observer
+
+    private var endObserver: NSObjectProtocol?
 
     // MARK: - Init
 
@@ -71,7 +75,7 @@ final class PlaybackEngine {
         // Prevent loading higher-res tracks than display can show (Pitfall 6)
         item.preferredMaximumResolution = UIScreen.main.nativeBounds.size
         player.replaceCurrentItem(with: item)
-        setupLoop()
+        setupEndObserver()
     }
 
     // MARK: - Playback Control
@@ -94,26 +98,26 @@ final class PlaybackEngine {
         player.seek(to: time)
     }
 
-    // MARK: - Looping
+    // MARK: - End-of-Playback
 
-    /// Sets up automatic looping by observing `AVPlayerItemDidPlayToEndTime`.
+    /// Observes `AVPlayerItemDidPlayToEndTime` and fires `onFinished`.
     ///
-    /// When the item reaches the end, seeks to zero and resumes playback.
-    /// Removes the previous observer before registering a new one (safe for reloads).
-    private func setupLoop() {
-        if let loopObserver {
-            NotificationCenter.default.removeObserver(loopObserver)
+    /// Does NOT auto-loop. When the reference finishes, playback stops and
+    /// RecordingViewModel is notified to end the recording session.
+    private func setupEndObserver() {
+        if let endObserver {
+            NotificationCenter.default.removeObserver(endObserver)
         }
 
-        loopObserver = NotificationCenter.default.addObserver(
+        endObserver = NotificationCenter.default.addObserver(
             forName: .AVPlayerItemDidPlayToEndTime,
             object: player.currentItem,
             queue: .main
         ) { [weak self] _ in
             Task { @MainActor [weak self] in
                 guard let self else { return }
-                self.player.seek(to: .zero)
-                self.play()
+                self.isPlaying = false
+                self.onFinished?()
             }
         }
     }

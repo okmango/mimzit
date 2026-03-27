@@ -30,9 +30,12 @@ struct CompositorView: UIViewRepresentable {
     /// Optional because CaptureEngine configures it asynchronously after `configure()` is called.
     let previewLayer: AVCaptureVideoPreviewLayer?
 
-    /// Fader position: 0.0 = reference only (previewLayer invisible), 1.0 = camera only.
-    /// Drives `previewLayer.opacity` — GPU-composited by the system at zero CPU cost (FADER-04).
-    @Binding var videoBlend: Float
+    /// Fader position: 0.0 = reference only, 1.0 = camera only.
+    /// Only used in `.blend` mode — other modes lock layer opacity via `activeViewMode`.
+    let videoBlend: Float
+
+    /// The current view mode — drives which layers are visible.
+    let activeViewMode: ViewMode
 
     // MARK: - UIViewRepresentable
 
@@ -60,6 +63,8 @@ struct CompositorView: UIViewRepresentable {
         CATransaction.setDisableActions(true)
 
         playerLayer.frame = uiView.bounds
+        // Hide reference layer in camera-only mode
+        playerLayer.opacity = activeViewMode.showsReferenceLayer ? 1.0 : 0.0
 
         if let previewLayer {
             // Handle late initialization: add previewLayer if it hasn't been added yet.
@@ -68,8 +73,12 @@ struct CompositorView: UIViewRepresentable {
                 uiView.layer.addSublayer(previewLayer)
             }
             previewLayer.frame = uiView.bounds
-            // Fader blend: previewLayer opacity tracks videoBlend (0 = hidden, 1 = opaque)
-            previewLayer.opacity = videoBlend
+            // Camera visibility driven by view mode
+            if activeViewMode == .blend {
+                previewLayer.opacity = videoBlend
+            } else {
+                previewLayer.opacity = activeViewMode.showsCameraLayer ? 1.0 : 0.0
+            }
         }
 
         CATransaction.commit()

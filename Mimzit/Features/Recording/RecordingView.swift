@@ -54,7 +54,8 @@ struct RecordingView: View {
                 CompositorView(
                     playerLayer: viewModel.playbackEngine.playerLayer,
                     previewLayer: viewModel.captureEngine.previewLayer,
-                    videoBlend: effectiveVideoBlendBinding
+                    videoBlend: viewModel.videoBlend,
+                    activeViewMode: viewModel.activeViewMode
                 )
                 .ignoresSafeArea()
             }
@@ -114,19 +115,6 @@ struct RecordingView: View {
                 viewModel.textOverlayOpacity = viewModel.videoBlend
             }
         }
-    }
-
-    // MARK: - Effective Video Blend Binding
-
-    /// Binding that reads effectiveVideoBlend but writes to videoBlend.
-    ///
-    /// CompositorView receives the effective (mode-adjusted) blend for rendering,
-    /// while the raw fader value is always written to videoBlend.
-    private var effectiveVideoBlendBinding: Binding<Float> {
-        Binding(
-            get: { viewModel.effectiveVideoBlend },
-            set: { viewModel.videoBlend = $0 }
-        )
     }
 
     // MARK: - Control Overlay

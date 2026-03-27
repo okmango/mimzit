@@ -112,15 +112,6 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
         content.contentType == .text
     }
 
-    /// The blend value passed to CompositorView.
-    ///
-    /// In .textOverlay mode the fader controls text opacity (D-11), not the video blend.
-    /// CompositorView should show the reference in that mode, so we lock to 0.0 (reference only).
-    /// For all other modes, returns the raw videoBlend value.
-    var effectiveVideoBlend: Float {
-        activeViewMode.faderControlsTextOpacity ? 0.0 : videoBlend
-    }
-
     /// Whether the audio fader is visible. Hidden for text-only content (no audio to blend).
     var audioFaderVisible: Bool {
         content.contentType != .text
@@ -178,6 +169,12 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
         // Set initial volume: audioBlend 0.0 = full reference volume
         playbackEngine.volume = 1.0
 
+        // Auto-stop recording when reference content finishes
+        playbackEngine.onFinished = { [weak self] in
+            guard let self, self.isRecording else { return }
+            self.toggleRecording()
+        }
+
         // Clean up any recording temp files older than 24 hours
         FileVault.cleanupOldRecordings()
     }
@@ -209,6 +206,9 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
             let outputURL = FileVault.recordingURL(filename: filename)
             captureEngine.startRecording(to: outputURL, delegate: self)
 
+            // Lock reference audio to full volume during recording
+            playbackEngine.volume = 1.0
+
             // Sync reference playback with recording start
             if content.contentType == .video || content.contentType == .audio {
                 playbackEngine.seek(to: .zero)
@@ -236,6 +236,8 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
             playbackEngine.pause()
             isRecording = false
             teleprompterScrolling = false
+            // Restore audio fader control now that recording stopped
+            updateAudioBlend()
             durationTimer?.cancel()
             controlsHideTask?.cancel()
             withAnimation(.easeIn(duration: 0.2)) {
@@ -248,10 +250,15 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
 
     /// Syncs PlaybackEngine volume with the audio fader position.
     ///
-    /// audioBlend 0.0 = full reference audio (volume 1.0).
+    /// During recording: always full reference volume (1.0) regardless of fader.
+    /// During review/idle: audioBlend 0.0 = full reference (volume 1.0),
     /// audioBlend 1.0 = muted reference (volume 0.0). (FADER-02)
     func updateAudioBlend() {
-        playbackEngine.volume = 1.0 - audioBlend
+        if isRecording {
+            playbackEngine.volume = 1.0
+        } else {
+            playbackEngine.volume = 1.0 - audioBlend
+        }
     }
 
     /// Adjusts layer visibility and effective blend when the view mode changes.
