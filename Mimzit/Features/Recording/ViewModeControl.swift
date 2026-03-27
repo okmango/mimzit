@@ -29,6 +29,9 @@ struct ViewModeControl: View {
     /// When false, the "Text" segment is dimmed and non-interactive (VIEW-03).
     let hasTranscript: Bool
 
+    /// When true, uses review-mode segment labels (e.g. "You" instead of "Cam") per D-06.
+    var isReviewMode: Bool = false
+
     // MARK: - Body
 
     var body: some View {
@@ -56,7 +59,7 @@ struct ViewModeControl: View {
                 selected = mode
             }
         } label: {
-            Text(mode.rawValue)
+            Text(isReviewMode ? mode.reviewSegmentLabel : mode.rawValue)
                 .font(.system(size: 13, weight: isSelected ? .semibold : .regular))
                 .foregroundColor(isSelected ? .white : Theme.dimmedText)
                 .padding(.horizontal, 16)

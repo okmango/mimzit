@@ -66,7 +66,7 @@ private struct SessionListContent: View {
             } else {
                 List {
                     ForEach(sessions) { session in
-                        NavigationLink(destination: Text("Review: \(session.referenceContentTitle)")) {
+                        NavigationLink(destination: ReviewView(session: session)) {
                             SessionRowView(
                                 session: session,
                                 thumbnailFilename: thumbnailMap[session.referenceContentID] ?? nil
