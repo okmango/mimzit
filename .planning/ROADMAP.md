@@ -62,11 +62,11 @@ Plans:
   3. User can open any past session and review it with the same video and audio faders used during recording
   4. Reference video and user recording play in sync during review (within one-frame drift for speech comparison)
   5. User can pause and scrub through review playback and see the fader blend update at the scrubbed position
-**Plans:** 0/3 plans executed
+**Plans:** 2/3 plans executed
 
 Plans:
-- [ ] 03-01-PLAN.md — Session model, V2 migration, FileVault session storage, auto-save wiring
-- [ ] 03-02-PLAN.md — SessionHistoryView, SessionRowView, Sessions tab, content detail link
+- [x] 03-01-PLAN.md — Session model, V2 migration, FileVault session storage, auto-save wiring
+- [x] 03-02-PLAN.md — SessionHistoryView, SessionRowView, Sessions tab, content detail link
 - [ ] 03-03-PLAN.md — ReviewView, ReviewViewModel, ReviewCompositorView, dual-player sync, visual checkpoint
 
 ## Progress
@@ -78,4 +78,4 @@ Phases execute in numeric order: 1 → 2 → 3
 |-------|----------------|--------|-----------|
 | 1. Foundation + Import + Transcription | 3/3 | Complete   | 2026-03-26 |
 | 2. Recording + Fader + View Modes | 1/3 | In Progress|  |
-| 3. Sessions + Review | 0/3 | Planned    |  |
+| 3. Sessions + Review | 2/3 | In Progress|  |

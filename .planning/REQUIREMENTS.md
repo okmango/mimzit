@@ -55,8 +55,8 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Session Management
 
 - [x] **SESS-01**: User can save a completed practice session (reference + user recording pair + metadata)
-- [ ] **SESS-02**: User can view a list of saved sessions sorted by date with timestamps
-- [ ] **SESS-03**: User can delete saved sessions to free storage
+- [x] **SESS-02**: User can view a list of saved sessions sorted by date with timestamps
+- [x] **SESS-03**: User can delete saved sessions to free storage
 - [x] **SESS-04**: Session data persists across app launches (SwiftData, reuse digzit schema versioning pattern)
 
 ### Review
@@ -64,7 +64,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **REV-01**: User can review any saved session with the same fader playback UI used during recording
 - [ ] **REV-02**: Reference video and user recording play back in sync (within acceptable drift for speech comparison)
 - [ ] **REV-03**: User can pause and scrub through review playback
-- [ ] **REV-04**: User can compare different sessions of the same reference video to see progress over time
+- [x] **REV-04**: User can compare different sessions of the same reference video to see progress over time
 
 ## v2 Requirements
 
@@ -145,13 +145,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FADER-03 | Phase 2 | Complete |
 | FADER-04 | Phase 2 | Complete |
 | SESS-01 | Phase 3 | Complete |
-| SESS-02 | Phase 3 | Pending |
-| SESS-03 | Phase 3 | Pending |
+| SESS-02 | Phase 3 | Complete |
+| SESS-03 | Phase 3 | Complete |
 | SESS-04 | Phase 3 | Complete |
 | REV-01 | Phase 3 | Pending |
 | REV-02 | Phase 3 | Pending |
 | REV-03 | Phase 3 | Pending |
-| REV-04 | Phase 3 | Pending |
+| REV-04 | Phase 3 | Complete |
 
 **Coverage:**
 - v1 requirements: 35 total
