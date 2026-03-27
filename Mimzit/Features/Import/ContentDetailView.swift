@@ -67,6 +67,21 @@ struct ContentDetailView: View {
                     .fullScreenCover(isPresented: $showRecording) {
                         RecordingView(content: content)
                     }
+
+                    // View Sessions — D-10: content-to-sessions direction
+                    NavigationLink {
+                        SessionHistoryView(contentFilter: content.id)
+                    } label: {
+                        HStack {
+                            Image(systemName: "clock.arrow.circlepath")
+                            Text("View Sessions")
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 13))
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .padding(.top, 8)
                 }
                 .padding(16)
             }
