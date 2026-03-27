@@ -117,9 +117,12 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
         content.contentType == .text
     }
 
-    /// Whether the audio fader is visible. Hidden for text-only content (no audio to blend).
+    /// Whether the audio fader is visible.
+    ///
+    /// Hidden during recording because reference audio is locked at full volume (1.0)
+    /// and the fader has no effect. Hidden for text-only content (no audio to blend).
     var audioFaderVisible: Bool {
-        content.contentType != .text
+        !isRecording && content.contentType != .text
     }
 
     /// Recording duration formatted as "MM:SS".
@@ -196,10 +199,16 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
 
     // MARK: - Recording Control
 
+    /// Tracks the content type at recording start so the delegate callback knows
+    /// whether to start reference playback (video/audio) or teleprompter scroll.
+    private var pendingContentTypeForRecordingStart: ContentType?
+
     /// Starts or stops recording depending on current state.
     ///
     /// Start: captures sync timestamp, starts AVCaptureMovieFileOutput recording,
-    /// seeks reference to zero and plays it, starts duration timer, schedules auto-hide.
+    /// then waits for `fileOutput(_:didStartRecordingTo:)` delegate callback before
+    /// starting reference playback. This prevents the race condition where reference
+    /// audio leads the user recording by the sessionQueue dispatch latency (REC-05).
     ///
     /// Stop: stops AVCaptureMovieFileOutput recording, pauses reference, cancels timer.
     func toggleRecording() {
@@ -209,16 +218,16 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
 
             let filename = "\(UUID().uuidString).mov"
             let outputURL = FileVault.recordingURL(filename: filename)
+
+            // Store content type so the delegate callback knows whether to start playback
+            pendingContentTypeForRecordingStart = content.contentType
+
             captureEngine.startRecording(to: outputURL, delegate: self)
 
-            // Lock reference audio to full volume during recording
-            playbackEngine.volume = 1.0
-
-            // Sync reference playback with recording start
-            if content.contentType == .video || content.contentType == .audio {
-                playbackEngine.seek(to: .zero)
-                playbackEngine.play()
-            }
+            // NOTE: reference playback is NOT started here. It is started in
+            // fileOutput(_:didStartRecordingTo:) after AVCaptureMovieFileOutput
+            // confirms capture has begun. This eliminates the 10-50ms race
+            // condition where reference audio would lead the user recording.
 
             isRecording = true
             teleprompterScrolling = true
@@ -241,6 +250,7 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
             playbackEngine.pause()
             isRecording = false
             teleprompterScrolling = false
+            pendingContentTypeForRecordingStart = nil
             // Restore audio fader control now that recording stopped
             updateAudioBlend()
             durationTimer?.cancel()
@@ -334,13 +344,30 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
 
     // MARK: - AVCaptureFileOutputRecordingDelegate
 
-    /// Called when recording successfully starts. Updates isRecording on main actor.
+    /// Called when recording successfully starts on the sessionQueue.
+    ///
+    /// Reference playback is started here — not in toggleRecording() — to guarantee
+    /// that the reference video begins only after AVCaptureMovieFileOutput has confirmed
+    /// capture has begun. This eliminates the 10-50ms race condition where reference
+    /// audio would otherwise lead the user recording by the sessionQueue dispatch latency.
     nonisolated func fileOutput(
         _ output: AVCaptureFileOutput,
         didStartRecordingTo fileURL: URL,
         from connections: [AVCaptureConnection]
     ) {
         Task { @MainActor in
+            // Lock reference audio to full volume during recording
+            self.playbackEngine.volume = 1.0
+
+            // Start reference playback now that capture is confirmed running.
+            // Both tracks begin at t=0 with minimal offset between them.
+            if self.pendingContentTypeForRecordingStart == .video
+                || self.pendingContentTypeForRecordingStart == .audio {
+                self.playbackEngine.seek(to: .zero)
+                self.playbackEngine.play()
+            }
+            self.pendingContentTypeForRecordingStart = nil
+
             self.isRecording = true
         }
     }
