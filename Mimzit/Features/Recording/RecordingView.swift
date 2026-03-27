@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 import AVFoundation
 import UIKit
 
@@ -27,6 +28,7 @@ struct RecordingView: View {
 
     @State private var viewModel: RecordingViewModel
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
 
     // MARK: - Init
 
@@ -92,6 +94,27 @@ struct RecordingView: View {
             if viewModel.cameraPermissionDenied {
                 cameraDeniedView
             }
+
+            // MARK: Save confirmation toast (D-02)
+            if viewModel.showSavedBanner {
+                VStack {
+                    HStack(spacing: 8) {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundColor(.green)
+                        Text("Session Saved")
+                            .font(.system(size: 15, weight: .semibold))
+                            .foregroundColor(.white)
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .background(Color.black.opacity(0.75))
+                    .clipShape(Capsule())
+                    .padding(.top, 60)
+
+                    Spacer()
+                }
+                .transition(.move(edge: .top).combined(with: .opacity))
+            }
         }
         .statusBarHidden(true)
         .onTapGesture {
@@ -102,6 +125,10 @@ struct RecordingView: View {
         }
         .onDisappear {
             viewModel.teardown()
+        }
+        .onChange(of: viewModel.lastRecordingURL) { _, newURL in
+            guard let url = newURL else { return }
+            Task { await saveSession(recordingURL: url) }
         }
         .onChange(of: viewModel.activeViewMode) { _, _ in
             viewModel.updateVideoBlendForMode()
@@ -114,6 +141,30 @@ struct RecordingView: View {
             if viewModel.activeViewMode == .textOverlay {
                 viewModel.textOverlayOpacity = viewModel.videoBlend
             }
+        }
+    }
+
+    // MARK: - Session Auto-Save (D-01)
+
+    /// Moves the completed recording to permanent storage and inserts a Session record.
+    ///
+    /// Triggered by `.onChange(of: viewModel.lastRecordingURL)` immediately after recording stops.
+    /// User remains on the recording screen — toast banner confirms the save (D-02).
+    private func saveSession(recordingURL: URL) async {
+        let filename = "\(UUID().uuidString).mov"
+        do {
+            let stored = try FileVault.moveRecording(from: recordingURL, filename: filename)
+            let session = Session(
+                duration: viewModel.recordingDuration,
+                syncTimestamp: viewModel.syncTimestamp,
+                recordingFilename: stored,
+                referenceContentID: content.id,
+                referenceContentTitle: content.title
+            )
+            modelContext.insert(session)
+            viewModel.showSaveConfirmation()
+        } catch {
+            print("Failed to save session: \(error)")
         }
     }
 
