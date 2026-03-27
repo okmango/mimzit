@@ -1,4 +1,4 @@
-import AVFoundation
+@preconcurrency import AVFoundation
 import CoreMedia
 
 /// Manages the AVCaptureSession lifecycle for live camera preview and recording.
@@ -7,6 +7,12 @@ import CoreMedia
 /// All session mutations are dispatched to a dedicated serial queue (`sessionQueue`)
 /// to avoid blocking the main thread. Preview layer and recording state are
 /// published back to the main actor for SwiftUI observation.
+///
+/// ## Concurrency Safety
+/// `captureSession` and `movieOutput` are marked `nonisolated(unsafe)` because they
+/// are exclusively accessed on `sessionQueue` (a serial DispatchQueue). The MainActor
+/// isolation of CaptureEngine protects the published state properties, while the
+/// session queue protects the AVFoundation objects per Apple's recommended pattern.
 ///
 /// ## FOUND-02 Compliance
 /// `captureSession.automaticallyConfiguresApplicationAudioSession = false` is set
@@ -24,7 +30,9 @@ final class CaptureEngine: NSObject {
 
     // MARK: - Session
 
-    private let captureSession = AVCaptureSession()
+    /// Exclusively accessed on `sessionQueue`. Safe despite MainActor isolation
+    /// because sessionQueue serializes all access.
+    nonisolated(unsafe) private let captureSession = AVCaptureSession()
 
     /// Dedicated serial queue for all session mutations (Apple-recommended pattern).
     /// Prevents blocking main thread during session start/stop/configure.
@@ -32,7 +40,8 @@ final class CaptureEngine: NSObject {
 
     // MARK: - Outputs
 
-    private var movieOutput = AVCaptureMovieFileOutput()
+    /// Exclusively accessed on `sessionQueue`.
+    nonisolated(unsafe) private var movieOutput = AVCaptureMovieFileOutput()
 
     // MARK: - Published State
 
@@ -103,17 +112,19 @@ final class CaptureEngine: NSObject {
         }
 
         // Subscribe to session interruption notifications
+        // captureSession is nonisolated(unsafe) so we capture it locally
+        let session = captureSession
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(sessionWasInterrupted(_:)),
             name: .AVCaptureSessionWasInterrupted,
-            object: captureSession
+            object: session
         )
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(sessionInterruptionEnded(_:)),
             name: .AVCaptureSessionInterruptionEnded,
-            object: captureSession
+            object: session
         )
     }
 
