@@ -8,14 +8,22 @@ import SwiftData
 /// 3. Add a `MigrationStage` to `stages` if needed
 ///
 /// ## Current Version
-/// V1.0.0 — Initial schema with ReferenceContent model.
+/// V2.0.0 — Adds Session model for practice session persistence.
 enum MimzitMigrationPlan: SchemaMigrationPlan {
-    static var schemas: [VersionedSchema.Type] { [MimzitSchemaV1.self] }
-    static var stages: [MigrationStage] { [] }
+    static var schemas: [VersionedSchema.Type] { [MimzitSchemaV1.self, MimzitSchemaV2.self] }
+    static var stages: [MigrationStage] {
+        [.lightweight(fromVersion: MimzitSchemaV1.self, toVersion: MimzitSchemaV2.self)]
+    }
 }
 
 /// Schema V1.0.0 — initial Mimzit data model.
 enum MimzitSchemaV1: VersionedSchema {
     static var versionIdentifier = Schema.Version(1, 0, 0)
     static var models: [any PersistentModel.Type] { [ReferenceContent.self] }
+}
+
+/// Schema V2.0.0 — adds Session model for practice session persistence.
+enum MimzitSchemaV2: VersionedSchema {
+    static var versionIdentifier = Schema.Version(2, 0, 0)
+    static var models: [any PersistentModel.Type] { [ReferenceContent.self, Session.self] }
 }

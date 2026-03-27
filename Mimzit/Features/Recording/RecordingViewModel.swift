@@ -83,6 +83,11 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
     /// Elapsed recording time in seconds. Resets to 0 at each recording start.
     var recordingDuration: TimeInterval = 0
 
+    // MARK: - Save Confirmation
+
+    /// True while the "Session Saved" toast banner is visible (D-02).
+    var showSavedBanner = false
+
     // MARK: - Permission
 
     /// True if the user has denied camera or microphone access.
@@ -307,6 +312,23 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
         }
         if isRecording {
             scheduleControlsHide()
+        }
+    }
+
+    // MARK: - Save Confirmation Banner (D-02)
+
+    /// Briefly shows the "Session Saved" toast banner for 2 seconds, then hides it.
+    ///
+    /// Call after a session has been successfully persisted to SwiftData.
+    func showSaveConfirmation() {
+        withAnimation(.easeIn(duration: 0.2)) {
+            showSavedBanner = true
+        }
+        Task {
+            try? await Task.sleep(for: .seconds(2))
+            withAnimation(.easeOut(duration: 0.3)) {
+                showSavedBanner = false
+            }
         }
     }
 

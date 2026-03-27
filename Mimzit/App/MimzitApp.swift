@@ -23,7 +23,7 @@ struct MimzitApp: App {
         // 2. SwiftData container with migration plan
         do {
             container = try ModelContainer(
-                for: ReferenceContent.self,
+                for: Schema([ReferenceContent.self, Session.self]),
                 migrationPlan: MimzitMigrationPlan.self
             )
         } catch {
