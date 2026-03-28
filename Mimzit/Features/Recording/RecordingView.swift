@@ -282,6 +282,24 @@ struct RecordingView: View {
                 )
             }
 
+            // Speaker mute toggle (hidden for text-only content)
+            if !viewModel.isTextOnlyContent {
+                HStack {
+                    Spacer()
+                    Button {
+                        viewModel.toggleMute()
+                    } label: {
+                        Image(systemName: viewModel.isMuted ? "speaker.slash.fill" : "speaker.wave.2.fill")
+                            .font(.system(size: 20))
+                            .foregroundColor(viewModel.isMuted ? Theme.recordActive : .white)
+                            .frame(width: 44, height: 44)
+                            .background(Color.black.opacity(0.45))
+                            .clipShape(Circle())
+                    }
+                    .accessibilityLabel(viewModel.isMuted ? "Unmute reference audio" : "Mute reference audio")
+                }
+            }
+
             // Speed control (text-only content only)
             if viewModel.isTextOnlyContent {
                 HStack {
