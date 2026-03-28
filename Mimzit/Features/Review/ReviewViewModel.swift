@@ -71,7 +71,11 @@ final class ReviewViewModel {
         let userURL = FileVault.sessionURL(for: session.recordingFilename)
         userEngine.load(url: userURL)
 
-        duration = referenceContent.duration ?? session.duration
+        // Use the shorter of reference and user recording as the scrub bar duration.
+        // If the user recorded less than the full reference, the scrub bar should
+        // only extend to the end of the shorter track so the timeline is accurate.
+        let referenceDuration = referenceContent.duration ?? session.duration
+        duration = min(referenceDuration, session.duration)
         durationString = formatTime(duration)
 
         // Apply syncTimestamp alignment (per D-13, REV-02).
@@ -89,15 +93,26 @@ final class ReviewViewModel {
         referenceEngine.seek(to: .zero)
         userEngine.seek(to: .zero)
 
-        // Reference player resets at end
-        referenceEngine.onFinished = { [weak self] in
-            guard let self else { return }
-            self.isPlaying = false
-            self.referenceEngine.seek(to: .zero)
-            self.userEngine.seek(to: .zero)
-            self.scrubPosition = 0
-            self.currentTimeString = "00:00"
+        // Shared reset: pause both engines and return to start.
+        // Extracted as a local closure so both onFinished handlers share identical behaviour.
+        let resetPlayback: @Sendable () -> Void = { [weak self] in
+            Task { @MainActor [weak self] in
+                guard let self else { return }
+                self.referenceEngine.pause()
+                self.userEngine.pause()
+                self.isPlaying = false
+                self.referenceEngine.seek(to: .zero)
+                self.userEngine.seek(to: .zero)
+                self.scrubPosition = 0
+                self.currentTimeString = "00:00"
+            }
         }
+
+        // Either video reaching its end stops both and resets to start.
+        // This handles the case where the user recording is shorter than the reference:
+        // when userEngine fires onFinished the reference is paused immediately.
+        referenceEngine.onFinished = resetPlayback
+        userEngine.onFinished = resetPlayback
 
         setupSyncObserver()
         updateAudioBlend()

@@ -77,9 +77,6 @@ struct ReviewView: View {
         .onDisappear {
             viewModel?.teardown()
         }
-        .onChange(of: viewModel?.audioBlend ?? 0) { _, _ in
-            viewModel?.updateAudioBlend()
-        }
     }
 
     // MARK: - ViewModel Setup
@@ -182,11 +179,16 @@ struct ReviewView: View {
                 rightLabel: viewModel.activeViewMode.reviewVideoFaderRightLabel
             )
 
-            // Audio fader (D-05: REF / YOU, D-07: same blend behavior as recording screen)
+            // Audio fader (D-05: REF / YOU, D-07: audioBlend 0.0 = ref only, 1.0 = user only)
+            // Binding.set calls updateAudioBlend() directly — more reliable than onChange
+            // with optional-chained expressions under @Observable.
             FaderView(
                 value: Binding(
                     get: { viewModel.audioBlend },
-                    set: { viewModel.audioBlend = $0 }
+                    set: {
+                        viewModel.audioBlend = $0
+                        viewModel.updateAudioBlend()
+                    }
                 ),
                 trackHeight: 4,
                 leftLabel: "REF",

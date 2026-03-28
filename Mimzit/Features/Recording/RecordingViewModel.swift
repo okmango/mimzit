@@ -119,10 +119,11 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
 
     /// Whether the audio fader is visible.
     ///
-    /// Hidden during recording because reference audio is locked at full volume (1.0)
-    /// and the fader has no effect. Hidden for text-only content (no audio to blend).
+    /// Always hidden on the recording screen — reference audio plays at full volume (1.0)
+    /// during practice and there is no second recording to blend against.
+    /// Audio blend is only meaningful on the review screen (ReviewView).
     var audioFaderVisible: Bool {
-        !isRecording && content.contentType != .text
+        false
     }
 
     /// Recording duration formatted as "MM:SS".
