@@ -58,6 +58,9 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
     /// True while the user is actively dragging a fader — suppresses auto-hide (D-04).
     var isFaderDragging = false
 
+    /// Whether reference audio is muted. Default false (unmuted). (MUTE-01)
+    var isMuted: Bool = false
+
     // MARK: - Sync
 
     /// Host time captured immediately before startRecording is called (REC-05).
@@ -269,11 +272,27 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
     /// During recording: always full reference volume (1.0) regardless of fader.
     /// During review/idle: audioBlend 0.0 = full reference (volume 1.0),
     /// audioBlend 1.0 = muted reference (volume 0.0). (FADER-02)
+    /// Early-returns if isMuted — mute state takes priority over fader/recording logic.
     func updateAudioBlend() {
+        guard !isMuted else { return }
         if isRecording {
             playbackEngine.volume = 1.0
         } else {
             playbackEngine.volume = 1.0 - audioBlend
+        }
+    }
+
+    /// Toggles reference audio mute on/off.
+    ///
+    /// When muted: sets playbackEngine.volume to 0.0 regardless of recording state.
+    /// When unmuted: restores volume via updateAudioBlend() so recording vs. idle
+    /// semantics are preserved (1.0 during recording, 1.0 - audioBlend otherwise).
+    func toggleMute() {
+        isMuted.toggle()
+        if isMuted {
+            playbackEngine.volume = 0.0
+        } else {
+            updateAudioBlend()
         }
     }
 
@@ -357,8 +376,10 @@ final class RecordingViewModel: NSObject, AVCaptureFileOutputRecordingDelegate {
         from connections: [AVCaptureConnection]
     ) {
         Task { @MainActor in
-            // Lock reference audio to full volume during recording
-            self.playbackEngine.volume = 1.0
+            // Lock reference audio to full volume during recording UNLESS muted
+            if !self.isMuted {
+                self.playbackEngine.volume = 1.0
+            }
 
             // Start reference playback now that capture is confirmed running.
             // Both tracks begin at t=0 with minimal offset between them.
