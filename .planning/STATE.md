@@ -88,6 +88,12 @@ Recent decisions affecting current work:
 
 None yet.
 
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 260328-pyp | Add speaker mute toggle to recording screen | 2026-03-28 | 1a38776 | [260328-pyp-add-speaker-mute-toggle-to-recording-scr](./quick/260328-pyp-add-speaker-mute-toggle-to-recording-scr/) |
+
 ### Blockers/Concerns
 
 - AirPods mic quality in .playAndRecord mode may be lower than expected (HFP vs A2DP); validate with physical device before shipping Phase 2
@@ -95,6 +101,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-27T05:30:31.552Z
-Stopped at: Completed 03-02-PLAN.md
+Last session: 2026-03-28
+Stopped at: Completed quick task 260328-pyp: Add speaker mute toggle to recording screen
 Resume file: None
