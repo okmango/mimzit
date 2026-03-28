@@ -81,7 +81,7 @@
 		C461578E447B25509B7C7576 /* TextScriptEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextScriptEditorView.swift; sourceTree = "<group>"; };
 		CD43502DB611B4D28C838B63 /* ViewModeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModeControl.swift; sourceTree = "<group>"; };
 		CE504B92AA300B904F1AE3F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D5458FB12B734B7CDFB28C75 /* Mimzit.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Mimzit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5458FB12B734B7CDFB28C75 /* Mimzit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mimzit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBEDD90C114C6E9E5CC37003 /* RecordingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewModel.swift; sourceTree = "<group>"; };
 		E44EFD2D7A1199F637A899FB /* TranscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionService.swift; sourceTree = "<group>"; };
 		F333DD4DA555949ACDC6F34D /* MimzitMigrationPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimzitMigrationPlan.swift; sourceTree = "<group>"; };
@@ -303,7 +303,6 @@
 				};
 			};
 			buildConfigurationList = 1F7DD7B65B4C2BE6CDB2D50E /* Build configuration list for PBXProject "Mimzit" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -313,6 +312,7 @@
 			mainGroup = 1D2F9D36B5976AC4581CD08B;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
+			productRefGroup = 65FAA29C40B3049601E2F0ED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -388,6 +388,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = Q2539A8MF2;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Mimzit/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -397,7 +398,7 @@
 				MARKETING_VERSION = 0.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.okmango.mimzit;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -468,6 +469,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = Q2539A8MF2;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Mimzit/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -477,7 +479,7 @@
 				MARKETING_VERSION = 0.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.okmango.mimzit;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
